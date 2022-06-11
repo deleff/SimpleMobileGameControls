@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://characters/states/BlockingState.gd"
 }, {
 "base": "State",
+"class": "HitStunState",
+"language": "GDScript",
+"path": "res://characters/states/HitStunState.gd"
+}, {
+"base": "State",
 "class": "Jab_1_State",
 "language": "GDScript",
 "path": "res://characters/states/Jab_1_State.gd"
@@ -59,6 +64,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/states/RunningState.gd"
 }, {
+"base": "State",
+"class": "SpecialAttackState",
+"language": "GDScript",
+"path": "res://characters/states/SpecialAttackState.gd"
+}, {
 "base": "Node2D",
 "class": "State",
 "language": "GDScript",
@@ -75,12 +85,18 @@ _global_script_classes=[ {
 "path": "res://characters/states/TauntingState.gd"
 }, {
 "base": "State",
+"class": "TumbleState",
+"language": "GDScript",
+"path": "res://characters/states/Tumble.gd"
+}, {
+"base": "State",
 "class": "WalkingState",
 "language": "GDScript",
 "path": "res://characters/states/WalkingState.gd"
 } ]
 _global_script_class_icons={
 "BlockingState": "",
+"HitStunState": "",
 "Jab_1_State": "",
 "Jab_2_State": "",
 "Jab_3_State": "",
@@ -90,9 +106,11 @@ _global_script_class_icons={
 "NeutralState": "",
 "RollingState": "",
 "RunningState": "",
+"SpecialAttackState": "",
 "State": "",
 "StateFactory": "",
 "TauntingState": "",
+"TumbleState": "",
 "WalkingState": ""
 }
 

@@ -16,7 +16,10 @@ func _init():
 		"taunting": TauntingState,
 		"jab_1": Jab_1_State,
 		"jab_2": Jab_2_State,
-		"jab_3": Jab_3_State
+		"jab_3": Jab_3_State,
+		"special": SpecialAttackState,
+		"hit_stun": HitStunState,
+		"tumble": TumbleState
 	}
 
 func get_state(state_name):

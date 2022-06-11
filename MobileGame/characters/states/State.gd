@@ -5,6 +5,7 @@ extends Node2D
 
 class_name State
 
+var attack_damage
 var state_name
 var speed
 var velocity = Vector2()
@@ -22,7 +23,8 @@ func _physics_process(_delta):
 	if persistent_state.get_slide_count() > 1:
 		persistent_state.change_state("neutral")
 
-func setup(change_state, target_position, character_name, character_type, sprite, persistent_state, currently_attacking):
+func setup(change_state, target_position, character_name, character_type, sprite, persistent_state, currently_attacking, attack_damage):
+	self.attack_damage = attack_damage
 	self.change_state = change_state
 	self.character_name = character_name
 	self.character_type = character_type
