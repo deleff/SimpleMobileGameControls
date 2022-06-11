@@ -13,7 +13,10 @@ func _init():
 		"jumping":  JumpingState,
 		"landing":  LandingState,
 		"blocking": BlockingState,
-		"taunting": TauntingState
+		"taunting": TauntingState,
+		"jab_1": Jab_1_State,
+		"jab_2": Jab_2_State,
+		"jab_3": Jab_3_State
 	}
 
 func get_state(state_name):

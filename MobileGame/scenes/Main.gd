@@ -10,11 +10,13 @@ extends Node2D
 func _ready():
 	## Get the user inputs
 	ResourceLoader.load("res://users/")
-	
 	## Get all of the possible characte states
 	ResourceLoader.load("res://characters/states/")
-
-
+	## Set Megaman's starting position
+	self.get_node("MegamanNode/Megaman").position = Vector2(100,400)
+	
+	self.get_node("MetNode").position = Vector2(800,400)
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

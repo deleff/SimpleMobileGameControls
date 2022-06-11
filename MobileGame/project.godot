@@ -15,6 +15,21 @@ _global_script_classes=[ {
 "path": "res://characters/states/BlockingState.gd"
 }, {
 "base": "State",
+"class": "Jab_1_State",
+"language": "GDScript",
+"path": "res://characters/states/Jab_1_State.gd"
+}, {
+"base": "State",
+"class": "Jab_2_State",
+"language": "GDScript",
+"path": "res://characters/states/Jab_2_State.gd"
+}, {
+"base": "State",
+"class": "Jab_3_State",
+"language": "GDScript",
+"path": "res://characters/states/Jab_3_State.gd"
+}, {
+"base": "State",
 "class": "JumpingState",
 "language": "GDScript",
 "path": "res://characters/states/JumpingState.gd"
@@ -66,6 +81,9 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BlockingState": "",
+"Jab_1_State": "",
+"Jab_2_State": "",
+"Jab_3_State": "",
 "JumpingState": "",
 "LandingState": "",
 "Megaman": "",
