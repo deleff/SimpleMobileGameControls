@@ -14,7 +14,8 @@ extends Node2D
 signal hit(from, to, amount_of_damage, hit_direction)
 signal enemy_jabbed(hero, enemy)
 signal enemy_special_attacked(hero, enemy)
-
+signal enemy_tapped(hero, enemy)
+signal enemy_thrown(hero, enemy, throw_direction)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

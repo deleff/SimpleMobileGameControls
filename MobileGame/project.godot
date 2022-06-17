@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://characters/states/BlockingState.gd"
 }, {
 "base": "State",
+"class": "DashAttackState",
+"language": "GDScript",
+"path": "res://characters/states/DashAttackState.gd"
+}, {
+"base": "State",
 "class": "HitStunState",
 "language": "GDScript",
 "path": "res://characters/states/HitStunState.gd"
@@ -35,9 +40,19 @@ _global_script_classes=[ {
 "path": "res://characters/states/Jab_3_State.gd"
 }, {
 "base": "State",
+"class": "JumpAttackState",
+"language": "GDScript",
+"path": "res://characters/states/JumpAttackState.gd"
+}, {
+"base": "State",
 "class": "JumpingState",
 "language": "GDScript",
 "path": "res://characters/states/JumpingState.gd"
+}, {
+"base": "State",
+"class": "LandingAttackState",
+"language": "GDScript",
+"path": "res://characters/states/LandingAttackState.gd"
 }, {
 "base": "State",
 "class": "LandingState",
@@ -85,6 +100,11 @@ _global_script_classes=[ {
 "path": "res://characters/states/TauntingState.gd"
 }, {
 "base": "State",
+"class": "ThrowingState",
+"language": "GDScript",
+"path": "res://characters/states/ThrowingState.gd"
+}, {
+"base": "State",
 "class": "TumbleState",
 "language": "GDScript",
 "path": "res://characters/states/Tumble.gd"
@@ -96,11 +116,14 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BlockingState": "",
+"DashAttackState": "",
 "HitStunState": "",
 "Jab_1_State": "",
 "Jab_2_State": "",
 "Jab_3_State": "",
+"JumpAttackState": "",
 "JumpingState": "",
+"LandingAttackState": "",
 "LandingState": "",
 "Megaman": "",
 "NeutralState": "",
@@ -110,6 +133,7 @@ _global_script_class_icons={
 "State": "",
 "StateFactory": "",
 "TauntingState": "",
+"ThrowingState": "",
 "TumbleState": "",
 "WalkingState": ""
 }

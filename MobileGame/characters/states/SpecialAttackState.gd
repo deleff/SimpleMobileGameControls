@@ -24,5 +24,9 @@ func _ready():
 	persistent_state.signal_message_queue.emit_signal("hit", persistent_state, currently_attacking, attack_damage, hit_direction)
 	#persistent_state.currently_attacking = null
 
+func _physics_process(_delta):
+	velocity = persistent_state.position.direction_to(persistent_state.position)
+	persistent_state.velocity = (velocity)
+
 func _on_special_hit_lag_end():
 	change_state.call_func("neutral")

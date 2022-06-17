@@ -4,11 +4,15 @@ extends KinematicBody2D
 # Declare member variables here. Examples:
 var attack_damage
 var currently_attacking = null
+var finger_on_screen = false
 var sprite
 var state
 var state_factory
 var target_position = Vector2()
 var tap_count
+var tap_entered_location = Vector2()
+var tap_exited_location = Vector2()
+var throw_direction = ""
 var velocity = Vector2()
 
 onready var finger = get_tree().get_root().get_node("Main/Finger")
@@ -25,19 +29,42 @@ func _ready():
 	tapper.connect("timeout", self, "_on_tapper_timeout")
 	target_position = self.position
 
+func _input(event):
+	if event is InputEventScreenTouch && event.is_pressed():
+		finger_on_screen = true
+		tap_entered_location = event.position 
+		if finger.overlaps_area(self.get_node("Sprite/SpriteArea2D")):
+			signal_message_queue.emit_signal("enemy_tapped", hero, self)
+	elif event is InputEventScreenTouch && event.is_pressed() == false:
+		finger_on_screen = false
+		tap_exited_location = event.position
+		# If hero is within range, and screen was tapped, send signal to hero to jab
+		if hero_jab_range.overlaps_body(self):
+			## If the player touched the character before lifting their finger (dragging the characer in a direction)
+			if finger.overlaps_area(self.get_node("Sprite/SpriteArea2D")):
+				## If dragging sideways
+				if abs(tap_entered_location.x - tap_exited_location.x) > 100:
+					if (tap_entered_location.x - tap_exited_location.x) > 0:
+						throw_direction = "left"
+					else:
+						throw_direction = "right"
+					signal_message_queue.emit_signal("enemy_thrown", hero, self, throw_direction)
+
 func _on_tapper_timeout():
 	tap_count = tapper.tap_count
-	# If hero is within range, and screen was tapped, send signal to hero to jab
-	if hero_jab_range.overlaps_body(self):
-		if finger.overlaps_area(self.get_node("Sprite/SpriteArea2D")):
-			if tap_count == 1:
-				signal_message_queue.emit_signal("enemy_jabbed", hero, self)
-			else:
-				signal_message_queue.emit_signal("enemy_special_attacked", hero, self)
+	## If not currently holding down
+	if finger_on_screen == false:
+		# If hero is within range, and screen was tapped, send signal to hero to jab
+		if hero_jab_range.overlaps_body(self):
+			if finger.overlaps_area(self.get_node("Sprite/SpriteArea2D")):
+				if tap_count == 1:
+					signal_message_queue.emit_signal("enemy_jabbed", hero, self)
+				else:
+					signal_message_queue.emit_signal("enemy_special_attacked", hero, self)
 
 ## If the character was hit
 func _on_character_attacked(from, to, amount_of_damage, hit_direction):
-	if to == (self) && state.state_name() != "BlockingState":
+	if to == (self) && state.state_name() != "BlockingState" && hero_jab_range.overlaps_body(self):
 		print("Met was hit by ", from)
 		print("Damage taken:", amount_of_damage)
 		if amount_of_damage < 10: ## hitstun
@@ -49,9 +76,9 @@ func _on_character_attacked(from, to, amount_of_damage, hit_direction):
 			change_state("hit_stun")
 		else: ## tumble
 			if hit_direction == "left":
-				target_position = Vector2((self.position.x - 300), self.position.y)
+				target_position = Vector2((self.position.x - 500), self.position.y)
 			else:
-				target_position = Vector2((self.position.x + 300), self.position.y)
+				target_position = Vector2((self.position.x + 500), self.position.y)
 			change_state("tumble")
 
 

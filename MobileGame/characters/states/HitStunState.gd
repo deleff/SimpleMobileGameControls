@@ -4,8 +4,6 @@ extends State
 
 class_name HitStunState
 
-var jumping_target_position
-
 func _ready():
 	state_name = "HitStunState"
 	#print(state_name, " instantiated")

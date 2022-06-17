@@ -13,6 +13,8 @@ var character_name
 var change_state
 var character_type
 var currently_attacking
+var jumping_target_position = Vector2()
+var landing_target_position = Vector2()
 var sprite = Sprite
 var target_position = Vector2()
 var persistent_state

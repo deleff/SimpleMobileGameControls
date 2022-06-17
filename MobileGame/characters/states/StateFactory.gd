@@ -6,20 +6,24 @@ var states
 
 func _init():
 	states = {
-		"neutral":  NeutralState,
-		"walking":  WalkingState,
-		"running":  RunningState,
-		"rolling":  RollingState,
-		"jumping":  JumpingState,
-		"landing":  LandingState,
-		"blocking": BlockingState,
-		"taunting": TauntingState,
-		"jab_1": Jab_1_State,
-		"jab_2": Jab_2_State,
-		"jab_3": Jab_3_State,
-		"special": SpecialAttackState,
-		"hit_stun": HitStunState,
-		"tumble": TumbleState
+		"neutral":        NeutralState,
+		"walking":        WalkingState,
+		"running":        RunningState,
+		"rolling":        RollingState,
+		"jumping":        JumpingState,
+		"jump_attack":    JumpAttackState,
+		"landing_attack": LandingAttackState,
+		"landing":        LandingState,
+		"blocking":       BlockingState,
+		"taunting":       TauntingState,
+		"jab_1":          Jab_1_State,
+		"jab_2":          Jab_2_State,
+		"jab_3":          Jab_3_State,
+		"special":        SpecialAttackState,
+		"dash_attack":    DashAttackState,
+		"throwing":       ThrowingState,
+		"hit_stun":       HitStunState,
+		"tumble":         TumbleState
 	}
 
 func get_state(state_name):
