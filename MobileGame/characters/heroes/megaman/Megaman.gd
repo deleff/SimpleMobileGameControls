@@ -40,13 +40,14 @@ func _ready():
 	jab_window.set_one_shot(true)
 
 func _on_enemy_thrown(hero, enemy, throw_direction):
-	if hero == (self):
-		target_position = self.position
-		currently_attacking = enemy
-		attack_damage = dash_attack_damage
-		if throw_direction == "right":
-			target_position.x = (self.position.x + 100)
-		change_state("throwing")
+	if state.state_name() == "NeutralState" || state.state_name() == "WalkingState":
+		if hero == (self):
+			target_position = self.position
+			currently_attacking = enemy
+			attack_damage = dash_attack_damage
+			if throw_direction == "right":
+				target_position.x = (self.position.x + 100)
+			change_state("throwing")
 
 func _on_enemy_tapped(hero, enemy):
 	if hero == (self):
