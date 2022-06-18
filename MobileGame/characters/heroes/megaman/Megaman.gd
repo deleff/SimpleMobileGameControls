@@ -1,31 +1,19 @@
 # Megaman.gd
 
-extends KinematicBody2D
+extends Character
 
 class_name Megaman
 
-var attacks = ["Jab_1_State", "Jab_2_State", "Jab_3_State", "SpecialState", "DashAttackState", "ThrowingState"]
-var attack_damage
-var can_dash = false
-var currently_attacking = null
-var finger_on_screen = false
-var dash_attack_damage = 10
-var jab_damage = 3
-var jab_window = Timer.new()
-var jumping_target_position = Vector2()
-var landing_target_position = Vector2()
-var sprite
-var state
-var state_factory
-var special_attack_damage = 20
-var target_position = Vector2()
-var tap_count = 0
-var velocity = Vector2()
 onready var finger = get_tree().get_root().get_node("Main/Finger")
 onready var tapper = get_tree().get_root().get_node("Main/Finger/Tapper")
 onready var signal_message_queue = get_tree().get_root().get_node("Main/SignalMessageQueue")
 
 func _ready():
+	character_name = "megaman"
+	character_type = "heroes"
+	dash_attack_damage = 10
+	jab_damage = 3
+	special_attack_damage = 20
 	## Get character states
 	state_factory = StateFactory.new()
 	change_state("neutral")
@@ -138,11 +126,3 @@ func _on_tapper_timeout():
 			if state.state_name() == "NeutralState" && finger_on_screen == true:
 				change_state("blocking")
 			
-func change_state(new_state_name):
-	if state != null:
-		state.queue_free()
-	state = state_factory.get_state(new_state_name).state.new()
-	sprite = "res://characters/heroes/megaman/sprites/%s.png" %[new_state_name]
-	state.setup(funcref(self, "change_state"), target_position, "megaman", "heroes", $Sprite, self, currently_attacking, attack_damage)
-	print("New state: ", new_state_name)
-	add_child(state)

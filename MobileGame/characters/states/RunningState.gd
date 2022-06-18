@@ -1,4 +1,4 @@
-# idle_state.gd
+# running_state.gd
 
 extends State
 
@@ -7,7 +7,7 @@ class_name RunningState
 func _ready():
 	state_name = "RunningState"
 	#print(state_name, " instantiated")
-	sprite.texture = load("res://characters/heroes/%s/sprites/running.png" %[character_name])
+	sprite.texture = load("res://characters/%s/%s/sprites/running.png" %[character_type, character_name])
 	speed = 550
 	## Face left if moving left
 	if persistent_state.position.x - target_position.x > 0:

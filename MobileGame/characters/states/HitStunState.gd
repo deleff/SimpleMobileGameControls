@@ -1,4 +1,4 @@
-# idle_state.gd
+# hit_stun_state.gd
 
 extends State
 

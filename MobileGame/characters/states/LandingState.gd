@@ -1,4 +1,4 @@
-# idle_state.gd
+# landing_state.gd
 
 extends State
 
@@ -9,7 +9,7 @@ class_name LandingState
 func _ready():
 	state_name = "LandingState"
 	#print(state_name, " instantiated")
-	sprite.texture = load("res://characters/heroes/%s/sprites/landing.png" %[character_name])
+	sprite.texture = load("res://characters/%s/%s/sprites/landing.png" %[character_type, character_name])
 	speed = 650
 
 func _input(event):

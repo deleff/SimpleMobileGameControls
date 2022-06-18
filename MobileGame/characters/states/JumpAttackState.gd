@@ -1,4 +1,4 @@
-# idle_state.gd
+# jump_attack_state.gd
 
 extends State
 
@@ -10,7 +10,7 @@ var hit_direction
 func _ready():
 	state_name = "JumpAttackState"
 	#print(state_name, " instantiated")
-	sprite.texture = load("res://characters/heroes/%s/sprites/jump_attack.png" %[character_name])
+	sprite.texture = load("res://characters/%s/%s/sprites/jump_attack.png" %[character_type, character_name])
 	speed = 650
 
 	## Determine which way the character is facing

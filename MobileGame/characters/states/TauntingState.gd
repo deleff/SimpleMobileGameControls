@@ -1,4 +1,4 @@
-# idle_state.gd
+# taunting_state.gd
 
 extends State
 
@@ -9,7 +9,7 @@ var taunt_timer = Timer.new()
 func _ready():
 	state_name = "TauntingState"
 	#print(state_name, " instantiated")
-	sprite.texture = load("res://characters/heroes/%s/sprites/taunting.png" %[character_name])
+	sprite.texture = load("res://characters/%s/%s/sprites/taunting.png" %[character_type, character_name])
 	add_child(taunt_timer)
 	taunt_timer.set_one_shot(true)
 	taunt_timer.connect("timeout", self, "_on_taunt_timeout")

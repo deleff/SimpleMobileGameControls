@@ -1,19 +1,6 @@
-extends KinematicBody2D
-
+extends Character
 
 # Declare member variables here. Examples:
-var attack_damage
-var currently_attacking = null
-var finger_on_screen = false
-var sprite
-var state
-var state_factory
-var target_position = Vector2()
-var tap_count
-var tap_entered_location = Vector2()
-var tap_exited_location = Vector2()
-var throw_direction = ""
-var velocity = Vector2()
 
 onready var finger = get_tree().get_root().get_node("Main/Finger")
 onready var tapper = get_tree().get_root().get_node("Main/Finger/Tapper")
@@ -22,6 +9,8 @@ onready var hero = get_tree().get_root().get_node("Main/MegamanNode/Megaman")
 onready var hero_jab_range = get_tree().get_root().get_node("Main/MegamanNode/Megaman/MegaManPivotPoint/JabRange")
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	character_name = "met"
+	character_type = "enemies"
 	print("Met info: ", self)
 	state_factory = StateFactory.new()
 	change_state("neutral")
@@ -80,12 +69,3 @@ func _on_character_attacked(from, to, amount_of_damage, hit_direction):
 			else:
 				target_position = Vector2((self.position.x + 500), self.position.y)
 			change_state("tumble")
-
-
-func change_state(new_state_name):
-	if state != null:
-		state.queue_free()
-	state = state_factory.get_state(new_state_name).state.new()
-	sprite = "res://characters/enemies/met/sprites/%s.png" %[new_state_name]
-	state.setup(funcref(self, "change_state"), target_position, "met", "enemies", $Sprite, self, currently_attacking, attack_damage)
-	add_child(state)

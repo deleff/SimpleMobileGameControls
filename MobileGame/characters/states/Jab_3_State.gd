@@ -1,4 +1,4 @@
-# idle_state.gd
+# jab_3_state.gd
 
 extends State
 

@@ -14,6 +14,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/states/BlockingState.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Character",
+"language": "GDScript",
+"path": "res://scenes/Character.gd"
+}, {
 "base": "State",
 "class": "DashAttackState",
 "language": "GDScript",
@@ -59,7 +64,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/states/LandingState.gd"
 }, {
-"base": "KinematicBody2D",
+"base": "Character",
 "class": "Megaman",
 "language": "GDScript",
 "path": "res://characters/heroes/megaman/Megaman.gd"
@@ -84,7 +89,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/states/SpecialAttackState.gd"
 }, {
-"base": "Node2D",
+"base": "KinematicBody2D",
 "class": "State",
 "language": "GDScript",
 "path": "res://characters/states/State.gd"
@@ -116,6 +121,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "BlockingState": "",
+"Character": "",
 "DashAttackState": "",
 "HitStunState": "",
 "Jab_1_State": "",

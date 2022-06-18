@@ -1,4 +1,4 @@
-# idle_state.gd
+# dash_attack_state.gd
 
 extends State
 
@@ -9,7 +9,7 @@ var hit_direction
 func _ready():
 	state_name = "DashAttackState"
 	#print(state_name, " instantiated")
-	sprite.texture = load("res://characters/heroes/%s/sprites/dash_attack.png" %[character_name])
+	sprite.texture = load("res://characters/%s/%s/sprites/dash_attack.png" %[character_type, character_name])
 	speed = 450
 	## Face left if moving left
 	if persistent_state.position.x - target_position.x > 0:

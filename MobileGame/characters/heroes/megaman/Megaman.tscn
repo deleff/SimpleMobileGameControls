@@ -57,6 +57,7 @@ collision_mask = 2
 script = SubResource( 5 )
 
 [node name="JabRangeCollisionShape2D" type="CollisionShape2D" parent="Megaman/MegaManPivotPoint/JabRange"]
+show_behind_parent = true
 shape = SubResource( 3 )
 
 [node name="Sprite" type="Sprite" parent="Megaman"]

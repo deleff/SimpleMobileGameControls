@@ -1,4 +1,4 @@
-# idle_state.gd
+# neutral_state.gd
 
 extends State
 

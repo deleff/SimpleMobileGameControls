@@ -1,6 +1,6 @@
 # state.gd
 
-extends Node2D
+extends KinematicBody2D
 #extends KinematicBody2D
 
 class_name State

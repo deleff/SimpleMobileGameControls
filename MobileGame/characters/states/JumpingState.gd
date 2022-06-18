@@ -1,4 +1,4 @@
-# idle_state.gd
+# jumping_state.gd
 
 extends State
 
@@ -9,7 +9,7 @@ class_name JumpingState
 func _ready():
 	state_name = "JumpingState"
 	#print(state_name, " instantiated")
-	sprite.texture = load("res://characters/heroes/%s/sprites/jumping.png" %[character_name])
+	sprite.texture = load("res://characters/%s/%s/sprites/jumping.png" %[character_type, character_name])
 	speed = 650
 	#persistent_state.state.jumping_target_position = persistent_state.state.position
 	## Face left if moving left

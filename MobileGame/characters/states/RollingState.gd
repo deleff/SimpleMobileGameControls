@@ -1,4 +1,4 @@
-# idle_state.gd
+# rolling_state.gd
 
 extends State
 
@@ -9,7 +9,7 @@ var rolling_target_position = Vector2()
 func _ready():
 	state_name = "RollingState"
 	#print(state_name, " instantiated")
-	sprite.texture = load("res://characters/heroes/%s/sprites/rolling.png" %[character_name])
+	sprite.texture = load("res://characters/%s/%s/sprites/rolling.png" %[character_type, character_name])
 	speed = 450
 	## Face left if moving left
 	if persistent_state.position.x - target_position.x < 0:
