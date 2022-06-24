@@ -17,7 +17,7 @@ func _ready():
 	state_jab_window.start(0.5)
 	
 	## Determine which way the character is facing
-	if persistent_state.position.x - target_position.x < 0:
+	if persistent_state.global_position.x - target_position.x < 0:
 		hit_direction = "right"
 	else:
 		hit_direction = "left"

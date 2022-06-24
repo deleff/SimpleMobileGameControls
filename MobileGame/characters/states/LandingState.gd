@@ -17,7 +17,7 @@ func _input(event):
 		change_state.call_func("landing_attack")
 
 func _physics_process(_delta):
-	velocity = persistent_state.position.direction_to(persistent_state.landing_target_position) * speed
+	velocity = persistent_state.global_position.direction_to(persistent_state.landing_target_position) * speed
 	persistent_state.velocity = (velocity)
-	if persistent_state.position.distance_to(persistent_state.landing_target_position) <= 7:
+	if persistent_state.global_position.distance_to(persistent_state.landing_target_position) <= 7:
 		change_state.call_func("neutral")

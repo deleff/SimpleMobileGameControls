@@ -13,11 +13,11 @@ func _ready():
 	persistent_state.collision_mask = 10
 
 func _physics_process(_delta):
-	velocity = persistent_state.position.direction_to(target_position) * speed
+	velocity = persistent_state.global_position.direction_to(target_position) * speed
 	persistent_state.velocity = (velocity)
-	if persistent_state.position.distance_to(target_position) <= 5:
+	if persistent_state.global_position.distance_to(target_position) <= 10:
 		## Turn around when almost done tumbling 
-		if persistent_state.position.x - target_position.x < 0:
+		if persistent_state.global_position.x - target_position.x < 0:
 			sprite.scale.x = -1
 		else:
 			sprite.scale.x = 1

@@ -17,7 +17,7 @@ func _ready():
 	special_hit_lag.start(0.5)
 	
 	## Determine which way the character is facing
-	if persistent_state.position.x - target_position.x < 0:
+	if persistent_state.global_position.x - target_position.x < 0:
 		hit_direction = "right"
 	else:
 		hit_direction = "left"
@@ -25,7 +25,7 @@ func _ready():
 	#persistent_state.currently_attacking = null
 
 func _physics_process(_delta):
-	velocity = persistent_state.position.direction_to(persistent_state.position)
+	velocity = persistent_state.global_position.direction_to(persistent_state.global_position)
 	persistent_state.velocity = (velocity)
 
 func _on_special_hit_lag_end():

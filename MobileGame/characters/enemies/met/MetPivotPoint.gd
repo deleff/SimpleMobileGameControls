@@ -1,5 +1,7 @@
 extends Character
 
+class_name Met
+
 # Declare member variables here. Examples:
 
 onready var finger = get_tree().get_root().get_node("Main/Finger")
@@ -7,6 +9,7 @@ onready var tapper = get_tree().get_root().get_node("Main/Finger/Tapper")
 onready var signal_message_queue = get_tree().get_root().get_node("Main/SignalMessageQueue")
 onready var hero = get_tree().get_root().get_node("Main/MegamanNode/Megaman")
 onready var hero_jab_range = get_tree().get_root().get_node("Main/MegamanNode/Megaman/MegaManPivotPoint/JabRange")
+onready var hero_position = get_tree().get_root().get_node("Main/MegamanNode/Megaman/MegaManPivotPoint")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	character_name = "met"
@@ -16,9 +19,17 @@ func _ready():
 	change_state("neutral")
 	signal_message_queue.connect("hit", self, "_on_character_attacked")
 	tapper.connect("timeout", self, "_on_tapper_timeout")
-	target_position = self.position
+	target_position = self.global_position
 
 func _input(event):
+	if self.global_position.x - hero_position.global_position.x < 0: ## Be on the left side
+		print("left")
+		target_position = Vector2((hero_position.global_position.x - 300), (hero_position.global_position.y))
+	else:
+		print("right")
+		target_position = Vector2((hero_position.global_position.x + 300), (hero_position.global_position.y))
+	change_state("walking")
+	
 	if event is InputEventScreenTouch && event.is_pressed():
 		finger_on_screen = true
 		tap_entered_location = event.position 
@@ -58,14 +69,14 @@ func _on_character_attacked(from, to, amount_of_damage, hit_direction):
 		print("Damage taken:", amount_of_damage)
 		if amount_of_damage < 10: ## hitstun
 			if hit_direction == "left":
-				target_position = Vector2((self.position.x - 20), self.position.y)
+				target_position = Vector2((self.global_position.x - 20), self.global_position.y)
 			else:
-				target_position = Vector2((self.position.x + 20), self.position.y)
+				target_position = Vector2((self.global_position.x + 20), self.global_position.y)
 				print("MET HIT RIGHT")
 			change_state("hit_stun")
 		else: ## tumble
 			if hit_direction == "left":
-				target_position = Vector2((self.position.x - 500), self.position.y)
+				target_position = Vector2((self.global_position.x - 500), self.global_position.y)
 			else:
-				target_position = Vector2((self.position.x + 500), self.position.y)
+				target_position = Vector2((self.global_position.x + 500), self.global_position.y)
 			change_state("tumble")

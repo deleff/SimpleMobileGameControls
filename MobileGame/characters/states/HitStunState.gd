@@ -11,7 +11,7 @@ func _ready():
 	speed = 300
 
 func _physics_process(_delta):
-	velocity = persistent_state.position.direction_to(target_position) * speed
+	velocity = persistent_state.global_position.direction_to(target_position) * speed
 	persistent_state.velocity = (velocity)
-	if persistent_state.position.distance_to(target_position) <= 5:
+	if persistent_state.global_position.distance_to(target_position) <= 5:
 		change_state.call_func("neutral")

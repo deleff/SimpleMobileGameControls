@@ -30,11 +30,11 @@ func _ready():
 func _on_enemy_thrown(hero, enemy, throw_direction):
 	if state.state_name() == "NeutralState" || state.state_name() == "WalkingState":
 		if hero == (self):
-			target_position = self.position
+			target_position = self.global_position
 			currently_attacking = enemy
 			attack_damage = dash_attack_damage
 			if throw_direction == "right":
-				target_position.x = (self.position.x + 100)
+				target_position.x = (self.global_position.x + 100)
 			change_state("throwing")
 
 func _on_enemy_tapped(hero, enemy):
@@ -62,7 +62,7 @@ func _on_enemy_jabbed(hero, enemy):
 	if hero == (self):
 		currently_attacking = enemy
 		## If not dash attacking, then jab
-		if state.state_name() != "DashAttackState":
+		if state.state_name() != "DashAttackState" || state.state_name() != "ThrowingState":
 			attack_damage = jab_damage
 			if state.state_name() == "Jab_1_State" && jab_window.time_left != 0:
 				change_state("jab_2")
