@@ -8,6 +8,7 @@ func _init():
 	states = {
 		"neutral":        NeutralState,
 		"walking":        WalkingState,
+		"following":      FollowingState,
 		"running":        RunningState,
 		"rolling":        RollingState,
 		"jumping":        JumpingState,

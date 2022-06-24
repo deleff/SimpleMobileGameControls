@@ -12,4 +12,9 @@ func _ready():
 func _input(event):
 	## If the player's finger is released from the screen
 	if event is InputEventScreenTouch && event.is_pressed() == false:
-		change_state.call_func("neutral")
+		if persistent_state.character_type == "heroes":
+			change_state.call_func("neutral")
+
+func _physics_process(_delta):
+	velocity = global_position.direction_to(self.global_position) * 200
+	persistent_state.velocity = (velocity)

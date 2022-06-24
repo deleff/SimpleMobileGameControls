@@ -21,7 +21,7 @@ func _ready():
 		hit_direction = "right"
 	else:
 		hit_direction = "left"
-	persistent_state.signal_message_queue.emit_signal("hit", persistent_state, currently_attacking, attack_damage, hit_direction)
+	persistent_state.signal_message_queue.emit_signal("hit", persistent_state, currently_attacking, "special_attack", attack_damage, hit_direction)
 	#persistent_state.currently_attacking = null
 
 func _physics_process(_delta):

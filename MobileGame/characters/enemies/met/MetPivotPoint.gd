@@ -19,17 +19,24 @@ func _ready():
 	change_state("neutral")
 	signal_message_queue.connect("hit", self, "_on_character_attacked")
 	tapper.connect("timeout", self, "_on_tapper_timeout")
+	$CharacterDetectorArea2D.connect("body_entered", self, "_on_character_detected")
+	$CharacterDetectorArea2D.connect("body_exited", self, "_on_character_lost")
 	target_position = self.global_position
 
-func _input(event):
-	if self.global_position.x - hero_position.global_position.x < 0: ## Be on the left side
-		print("left")
-		target_position = Vector2((hero_position.global_position.x - 300), (hero_position.global_position.y))
+func _on_character_lost(body):
+	if body == hero:
+		change_state("neutral")
+
+func _on_character_detected(body):
+	if body == hero:
+		print("Hero detected")
+		currently_attacking = hero
+		target_position = body.global_position
+		change_state("following")
 	else:
-		print("right")
-		target_position = Vector2((hero_position.global_position.x + 300), (hero_position.global_position.y))
-	change_state("walking")
-	
+		print("Not the momma, it's ", body)
+
+func _input(event):
 	if event is InputEventScreenTouch && event.is_pressed():
 		finger_on_screen = true
 		tap_entered_location = event.position 
@@ -63,20 +70,23 @@ func _on_tapper_timeout():
 					signal_message_queue.emit_signal("enemy_special_attacked", hero, self)
 
 ## If the character was hit
-func _on_character_attacked(from, to, amount_of_damage, hit_direction):
-	if to == (self) && state.state_name() != "BlockingState" && hero_jab_range.overlaps_body(self):
-		print("Met was hit by ", from)
-		print("Damage taken:", amount_of_damage)
-		if amount_of_damage < 10: ## hitstun
-			if hit_direction == "left":
-				target_position = Vector2((self.global_position.x - 20), self.global_position.y)
-			else:
-				target_position = Vector2((self.global_position.x + 20), self.global_position.y)
-				print("MET HIT RIGHT")
-			change_state("hit_stun")
-		else: ## tumble
-			if hit_direction == "left":
-				target_position = Vector2((self.global_position.x - 500), self.global_position.y)
-			else:
-				target_position = Vector2((self.global_position.x + 500), self.global_position.y)
-			change_state("tumble")
+func _on_character_attacked(from, to, attack_type, amount_of_damage, hit_direction):
+	## If blocking
+	if to == self && hero_jab_range.overlaps_body(self):
+		## Can be hit if not blocking, or if blocking but attack is a throw
+		if (state.state_name() == "BlockingState" && attack_type == "throw") ||  state.state_name() != "BlockingState":
+			print("Met was hit by ", from)
+			print("Damage taken:", amount_of_damage)
+			if amount_of_damage < 10: ## hitstun
+				if hit_direction == "left":
+					target_position = Vector2((self.global_position.x - 20), self.global_position.y)
+				else:
+					target_position = Vector2((self.global_position.x + 20), self.global_position.y)
+					print("MET HIT RIGHT")
+				change_state("hit_stun")
+			else: ## tumble
+				if hit_direction == "left":
+					target_position = Vector2((self.global_position.x - 300), self.global_position.y)
+				else:
+					target_position = Vector2((self.global_position.x + 300), self.global_position.y)
+				change_state("tumble")

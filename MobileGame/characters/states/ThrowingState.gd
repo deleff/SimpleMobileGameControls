@@ -23,7 +23,7 @@ func _ready():
 	else:
 		hit_direction = "left"
 		sprite.scale.x = -1
-	persistent_state.signal_message_queue.emit_signal("hit", persistent_state, currently_attacking, attack_damage, hit_direction)
+	persistent_state.signal_message_queue.emit_signal("hit", persistent_state, currently_attacking, "throw", attack_damage, hit_direction)
 	#persistent_state.currently_attacking = null
 
 func _physics_process(_delta):

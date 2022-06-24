@@ -26,6 +26,6 @@ func _ready():
 func _physics_process(_delta):
 	velocity = persistent_state.global_position.direction_to(target_position) * speed
 	persistent_state.velocity = (velocity)
-	persistent_state.signal_message_queue.emit_signal("hit", persistent_state, currently_attacking, attack_damage, hit_direction)
+	persistent_state.signal_message_queue.emit_signal("hit", persistent_state, currently_attacking, "dash_attack", attack_damage, hit_direction)
 	if persistent_state.global_position.distance_to(target_position) <= 5:
 		change_state.call_func("neutral")

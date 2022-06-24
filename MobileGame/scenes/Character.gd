@@ -9,6 +9,7 @@ var attack_damage: int
 var character_name: String
 var character_type: String
 var currently_attacking: Object
+var current_health: int
 var finger_on_screen: bool = false
 var dash_attack_damage: int
 var health: int
@@ -16,10 +17,12 @@ var jab_damage: int
 var jab_window = Timer.new()
 var jumping_target_position: Vector2
 var landing_target_position: Vector2
+var max_health: int
 var state: State
 var state_factory: StateFactory
 var special_attack_damage: int
 var target_position: Vector2
+var target_character: KinematicBody2D
 var tap_count: int = 0
 var tap_entered_location: Vector2
 var tap_exited_location: Vector2
