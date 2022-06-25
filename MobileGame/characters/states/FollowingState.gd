@@ -22,10 +22,8 @@ func _ready():
 
 func _physics_process(_delta):
 	if persistent_state.global_position.x - currently_following.global_position.x < 0: ## Be on the left side
-		print("left")
 		target_position = Vector2((currently_following.global_position.x - 200), (currently_following.global_position.y))
 	else:
-		print("right")
 		target_position = Vector2((currently_following.global_position.x + 200), (currently_following.global_position.y))
 
 	velocity = persistent_state.global_position.direction_to(target_position) * speed

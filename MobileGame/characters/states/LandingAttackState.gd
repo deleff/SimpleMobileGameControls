@@ -12,6 +12,7 @@ func _ready():
 	#print(state_name, " instantiated")
 	sprite.texture = load("res://characters/%s/%s/sprites/landing_attack.png" %[character_type, character_name])
 	speed = 650
+	persistent_state.target_position = persistent_state.landing_target_position
 
 	## Determine which way the character is facing
 	if persistent_state.global_position.x - target_position.x < 0:

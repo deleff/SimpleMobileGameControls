@@ -110,19 +110,21 @@ func _on_tapper_timeout():
 	tap_count = tapper.tap_count
 	print("Tap count: ", tap_count)
 	if state.state_name() == "NeutralState" || state.state_name() == "WalkingState" || state.state_name() == "RunningState":
-		## If the player didn't tap the character
-		if finger.overlaps_area(self.get_node("Sprite/SpriteArea2D")) == false:
-			## If player is not currently attacking
-			if attacks.has(state.state_name()) == false:
-				if tap_count == 1:
-					change_state("walking")
-				else:
-					change_state("running")
-			else: ## If the player is currently attacking
-				print("can't move, currently attacking")
-		## If the player tapped and held the character
-		else:
-			## Can only block from a neutral states
-			if state.state_name() == "NeutralState" && finger_on_screen == true:
-				change_state("blocking")
+		## Don't transition from landing attack to walking
+		if state.state_name() != "LandingAttackState":
+			## If the player didn't tap the character
+			if finger.overlaps_area(self.get_node("Sprite/SpriteArea2D")) == false:
+				## If player is not currently attacking
+				if attacks.has(state.state_name()) == false:
+					if tap_count == 1:
+						change_state("walking")
+					else:
+						change_state("running")
+				else: ## If the player is currently attacking
+					print("can't move, currently attacking")
+			## If the player tapped and held the character
+			else:
+				## Can only block from a neutral states
+				if state.state_name() == "NeutralState" && finger_on_screen == true:
+					change_state("blocking")
 			

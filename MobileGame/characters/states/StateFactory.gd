@@ -24,7 +24,8 @@ func _init():
 		"dash_attack":    DashAttackState,
 		"throwing":       ThrowingState,
 		"hit_stun":       HitStunState,
-		"tumble":         TumbleState
+		"tumble":         TumbleState,
+		"dying":          DyingState
 	}
 
 func get_state(state_name):

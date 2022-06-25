@@ -4,6 +4,10 @@ class_name Met
 
 # Declare member variables here. Examples:
 
+var state_change_timer = Timer.new()
+var next_state = RandomNumberGenerator.new()
+
+
 onready var finger = get_tree().get_root().get_node("Main/Finger")
 onready var tapper = get_tree().get_root().get_node("Main/Finger/Tapper")
 onready var signal_message_queue = get_tree().get_root().get_node("Main/SignalMessageQueue")
@@ -22,6 +26,44 @@ func _ready():
 	$CharacterDetectorArea2D.connect("body_entered", self, "_on_character_detected")
 	$CharacterDetectorArea2D.connect("body_exited", self, "_on_character_lost")
 	target_position = self.global_position
+	add_child(state_change_timer)
+	state_change_timer.connect("timeout", self, "_on_state_change_timeout")
+	state_change_timer.start(3.0)
+	next_state.randomize()
+	max_health = 30
+	current_health = max_health
+
+func _on_state_change_timeout():
+	if state.state_name() != "following":
+		if state.state_name() != "DyingState":
+			if self.global_position.x - hero_position.global_position.x < 0: ## Be on the left side
+				target_position = Vector2((hero_position.global_position.x - 300), (hero_position.global_position.y))
+			else:
+				target_position = Vector2((hero_position.global_position.x + 300), (hero_position.global_position.y))
+			## Change state based on RNG
+			match next_state.randi_range(1,6):
+				1: 
+					change_state("walking")
+				2:
+					change_state("running")
+				3:
+					change_state("jumping")
+				4: 
+					if self.global_position.x - hero_position.global_position.x > 0: ## Be on the left side
+						$Sprite.scale.x = -1
+					else:
+						$Sprite.scale.x = 1
+					target_position = hero.global_position
+					change_state("jab_1")
+				5:
+					if self.global_position.x - hero_position.global_position.x > 0: ## Be on the left side
+						$Sprite.scale.x = -1
+					else:
+						$Sprite.scale.x = 1
+					target_position = hero.global_position
+					change_state("special")
+				6:
+					change_state("blocking")
 
 func _on_character_lost(body):
 	if body == hero:
@@ -29,12 +71,9 @@ func _on_character_lost(body):
 
 func _on_character_detected(body):
 	if body == hero:
-		print("Hero detected")
 		currently_attacking = hero
 		target_position = body.global_position
 		change_state("following")
-	else:
-		print("Not the momma, it's ", body)
 
 func _input(event):
 	if event is InputEventScreenTouch && event.is_pressed():
@@ -75,18 +114,27 @@ func _on_character_attacked(from, to, attack_type, amount_of_damage, hit_directi
 	if to == self && hero_jab_range.overlaps_body(self):
 		## Can be hit if not blocking, or if blocking but attack is a throw
 		if (state.state_name() == "BlockingState" && attack_type == "throw") ||  state.state_name() != "BlockingState":
-			print("Met was hit by ", from)
-			print("Damage taken:", amount_of_damage)
-			if amount_of_damage < 10: ## hitstun
-				if hit_direction == "left":
-					target_position = Vector2((self.global_position.x - 20), self.global_position.y)
-				else:
-					target_position = Vector2((self.global_position.x + 20), self.global_position.y)
-					print("MET HIT RIGHT")
-				change_state("hit_stun")
-			else: ## tumble
-				if hit_direction == "left":
-					target_position = Vector2((self.global_position.x - 300), self.global_position.y)
-				else:
-					target_position = Vector2((self.global_position.x + 300), self.global_position.y)
-				change_state("tumble")
+			## If in tumble, canpile on the damage
+			if state.state_name() != "TumbleState":
+				print("Met current state:", state.state_name())
+				print("Met was hit by ", from)
+				print("Damage taken:", amount_of_damage)
+				if amount_of_damage < 10: ## hitstun
+					if hit_direction == "left":
+						target_position = Vector2((self.global_position.x - 20), self.global_position.y)
+					else:
+						target_position = Vector2((self.global_position.x + 20), self.global_position.y)
+						print("MET HIT RIGHT")
+					change_state("hit_stun")
+				else: ## tumble
+					if hit_direction == "left":
+						target_position = Vector2((self.global_position.x - 300), self.global_position.y)
+					else:
+						target_position = Vector2((self.global_position.x + 300), self.global_position.y)
+					change_state("tumble")
+				## Take damage
+				current_health -= amount_of_damage
+				print("Current health: ", current_health)
+				## Die if out of health
+				if current_health <= 0:
+					change_state("dying")
