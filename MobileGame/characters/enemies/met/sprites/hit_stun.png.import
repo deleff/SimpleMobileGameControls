@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/hitstun.png-bc6b232d503d01ddabc2230a38185017.stex"
+path="res://.import/hit_stun.png-a0931761dee2527e0eb2349348fd0c03.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/enemies/met/sprites/hitstun.png"
-dest_files=[ "res://.import/hitstun.png-bc6b232d503d01ddabc2230a38185017.stex" ]
+source_file="res://characters/enemies/met/sprites/hit_stun.png"
+dest_files=[ "res://.import/hit_stun.png-a0931761dee2527e0eb2349348fd0c03.stex" ]
 
 [params]
 

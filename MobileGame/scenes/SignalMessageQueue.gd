@@ -16,6 +16,7 @@ signal enemy_jabbed(hero, enemy)
 signal enemy_special_attacked(hero, enemy)
 signal enemy_tapped(hero, enemy)
 signal enemy_thrown(hero, enemy, throw_direction)
+signal hurtbox_entered(character_hurtbox, hit_by)
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

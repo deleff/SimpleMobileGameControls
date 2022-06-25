@@ -61,9 +61,9 @@ func _on_state_change_timeout():
 					get_parent().add_child(shot)
 					shot.global_position = self.global_position
 					if $Sprite.scale.x == -1:
-						shot.set_shot_direction(-1)
+						shot.set_shot_direction(-1,0)
 					else:
-						shot.set_shot_direction(1)
+						shot.set_shot_direction(1,0)
 				5:
 					if self.global_position.x - hero_position.global_position.x > 0: ## Be on the left side
 						$Sprite.scale.x = -1
@@ -71,13 +71,27 @@ func _on_state_change_timeout():
 						$Sprite.scale.x = 1
 					target_position = hero.global_position
 					change_state("special")
+					## Shoot once up
+					var up_shot = MET_SHOT.instance()
+					get_parent().add_child(up_shot)
+					up_shot.global_position = self.global_position
+					## Once middle
 					var shot = MET_SHOT.instance()
 					get_parent().add_child(shot)
 					shot.global_position = self.global_position
+					## once down
+					var down_shot = MET_SHOT.instance()
+					get_parent().add_child(down_shot)
+					down_shot.global_position = self.global_position
+					## Determine the direction of the shots
 					if $Sprite.scale.x == -1:
-						shot.set_shot_direction(-1)
+						up_shot.set_shot_direction(-1,-1)
+						shot.set_shot_direction(-1,0)
+						down_shot.set_shot_direction(-1,1)
 					else:
-						shot.set_shot_direction(1)
+						up_shot.set_shot_direction(1,-1)
+						shot.set_shot_direction(1,0)
+						down_shot.set_shot_direction(1,1)
 				6:
 					change_state("blocking")
 
@@ -140,7 +154,6 @@ func _on_character_attacked(from, to, attack_type, amount_of_damage, hit_directi
 						target_position = Vector2((self.global_position.x - 20), self.global_position.y)
 					else:
 						target_position = Vector2((self.global_position.x + 20), self.global_position.y)
-						print("MET HIT RIGHT")
 					change_state("hit_stun")
 				else: ## tumble
 					if hit_direction == "left":
@@ -150,7 +163,7 @@ func _on_character_attacked(from, to, attack_type, amount_of_damage, hit_directi
 					change_state("tumble")
 				## Take damage
 				current_health -= amount_of_damage
-				print("Current health: ", current_health)
+				print("Met current health: ", current_health)
 				## Die if out of health
 				if current_health <= 0:
 					change_state("dying")

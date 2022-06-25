@@ -24,8 +24,32 @@ func _ready():
 	signal_message_queue.connect("enemy_special_attacked", self, "_on_enemy_special_attacked")
 	signal_message_queue.connect("enemy_tapped", self, "_on_enemy_tapped")
 	signal_message_queue.connect("enemy_thrown", self, "_on_enemy_thrown")
+	signal_message_queue.connect("hit", self, "_on_megaman_hit")
 	add_child(jab_window)
 	jab_window.set_one_shot(true)
+	hurtbox = $Sprite/SpriteArea2D
+	hurtbox.connect("area_entered", self, "on_hutbox_entered")
+	max_health = 100
+	current_health = max_health
+
+func _on_megaman_hit(from, to, attack_type, amount_of_damage, hit_direction):
+	## Can be hit if not blocking, or if blocking but attack is a throw
+	if (state.state_name() == "BlockingState" && attack_type == "throw") ||  state.state_name() != "BlockingState":
+		if to == hurtbox:
+			if hit_direction == "left":
+				target_position = Vector2((self.global_position.x - 20), self.global_position.y)
+			else:
+				target_position = Vector2((self.global_position.x + 20), self.global_position.y)
+			change_state("hit_stun")
+			current_health -= amount_of_damage
+			print("Megaman health: ", current_health)
+			## Die if out of health
+			if current_health <= 0:
+				change_state("dying")
+	
+	
+func on_hutbox_entered(by):
+	signal_message_queue.emit_signal("hurtbox_entered", hurtbox, by)
 
 func _on_enemy_thrown(hero, enemy, throw_direction):
 	if state.state_name() == "NeutralState" || state.state_name() == "WalkingState":

@@ -13,6 +13,7 @@ var current_health: int
 var finger_on_screen: bool = false
 var dash_attack_damage: int
 var health: int
+var hurtbox = Area2D
 var jab_damage: int
 var jab_window = Timer.new()
 var jumping_target_position: Vector2
