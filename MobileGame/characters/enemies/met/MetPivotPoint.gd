@@ -4,6 +4,8 @@ class_name Met
 
 # Declare member variables here. Examples:
 
+const MET_SHOT = preload("res://characters/enemies/met/MetShotNode.tscn")
+
 var state_change_timer = Timer.new()
 var next_state = RandomNumberGenerator.new()
 
@@ -55,6 +57,13 @@ func _on_state_change_timeout():
 						$Sprite.scale.x = 1
 					target_position = hero.global_position
 					change_state("jab_1")
+					var shot = MET_SHOT.instance()
+					get_parent().add_child(shot)
+					shot.global_position = self.global_position
+					if $Sprite.scale.x == -1:
+						shot.set_shot_direction(-1)
+					else:
+						shot.set_shot_direction(1)
 				5:
 					if self.global_position.x - hero_position.global_position.x > 0: ## Be on the left side
 						$Sprite.scale.x = -1
@@ -62,6 +71,13 @@ func _on_state_change_timeout():
 						$Sprite.scale.x = 1
 					target_position = hero.global_position
 					change_state("special")
+					var shot = MET_SHOT.instance()
+					get_parent().add_child(shot)
+					shot.global_position = self.global_position
+					if $Sprite.scale.x == -1:
+						shot.set_shot_direction(-1)
+					else:
+						shot.set_shot_direction(1)
 				6:
 					change_state("blocking")
 

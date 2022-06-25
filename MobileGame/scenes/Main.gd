@@ -17,6 +17,7 @@ func _ready():
 	
 	self.get_node("MetNode").position = Vector2(800,400)
 	
+	self.get_node("MetSho")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
