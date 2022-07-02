@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dash_attack.wav-12663f3d8d2699ab4622bda3bf7646ce.sample"
+
+[deps]
+
+source_file="res://characters/heroes/roll/sfx/dash_attack.wav"
+dest_files=[ "res://.import/dash_attack.wav-12663f3d8d2699ab4622bda3bf7646ce.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

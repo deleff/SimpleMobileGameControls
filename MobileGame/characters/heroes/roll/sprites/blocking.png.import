@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Jab_1_State.png-913287f1ea3086959a46dbe54fba1d61.stex"
+path="res://.import/blocking.png-b9ae714cc4ff3d52692634b8561b22b2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/enemies/met/sprites/Jab_1_State.png"
-dest_files=[ "res://.import/Jab_1_State.png-913287f1ea3086959a46dbe54fba1d61.stex" ]
+source_file="res://characters/heroes/roll/sprites/blocking.png"
+dest_files=[ "res://.import/blocking.png-b9ae714cc4ff3d52692634b8561b22b2.stex" ]
 
 [params]
 

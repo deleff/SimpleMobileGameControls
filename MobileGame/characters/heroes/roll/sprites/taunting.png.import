@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Jab_1_State.png-5b528530746cc45b73587b6530242b1d.stex"
+path="res://.import/taunting.png-7be988130a365fbd1f07c09b8ce4d1a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/heroes/megaman/sprites/Jab_1_State.png"
-dest_files=[ "res://.import/Jab_1_State.png-5b528530746cc45b73587b6530242b1d.stex" ]
+source_file="res://characters/heroes/roll/sprites/taunting.png"
+dest_files=[ "res://.import/taunting.png-7be988130a365fbd1f07c09b8ce4d1a4.stex" ]
 
 [params]
 

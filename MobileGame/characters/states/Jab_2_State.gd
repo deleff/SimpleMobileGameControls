@@ -10,7 +10,7 @@ var state_jab_window = Timer.new()
 func _ready():
 	state_name = "Jab_2_State"
 	#print(state_name, " instantiated")
-	sprite.texture = load("res://characters/%s/%s/sprites/Jab_2_State.png" %[character_type, character_name])
+	sprite.texture = load("res://characters/%s/%s/sprites/jab2.png" %[character_type, character_name])
 	add_child(state_jab_window)
 	state_jab_window.set_one_shot(true)
 	state_jab_window.connect("timeout", self, "_on_jab_window_close")

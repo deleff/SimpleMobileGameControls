@@ -28,6 +28,7 @@ var target_character: KinematicBody2D
 var tap_count: int = 0
 var tap_entered_location: Vector2
 var tap_exited_location: Vector2
+var throw_damage: int
 var throw_direction: String
 var velocity: Vector2
 

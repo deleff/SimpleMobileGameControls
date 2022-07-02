@@ -1,11 +1,15 @@
 extends Node2D
 
-var player_1 = "megaman"
+#var player_1 = "Megaman"
+var player_1 = "Roll"
 
 const MEGAMAN = preload("res://characters/heroes/megaman/Megaman.tscn")
-const ROLL = preload("res://characters/heroes/megaman/Megaman.tscn")
+const ROLL = preload("res://characters/heroes/roll/Roll.tscn")
 const MET = preload("res://characters/enemies/met/Met.tscn")
 var met_spawner_timer = Timer.new()
+var met_spawn_location = RandomNumberGenerator.new()
+var met_spawn_x: int
+var met_spawn_y: int
 var met_count = 1
 var score = 0
 var theme
@@ -21,7 +25,7 @@ func _ready():
 	## Get all of the possible characte states
 	ResourceLoader.load("res://characters/states/")
 	## Instantiate hero
-	if player_1 == "megaman":
+	if player_1 == "Megaman":
 		var megaman = MEGAMAN.instance()
 		add_child(megaman)
 		megaman.position = Vector2(100,400)
@@ -30,6 +34,7 @@ func _ready():
 		var Roll = ROLL.instance()
 		add_child(Roll)
 		Roll.position = Vector2(100,400)
+		theme = load("res://characters/heroes/roll/sfx/theme.mp3")
 	$AudioStreamPlayer2D.stream = theme
 	$AudioStreamPlayer2D.play()
 	## Instantiate first met
@@ -51,10 +56,14 @@ func _on_spawner_timeout():
 	score += 1
 	$UserInterface/Score.text = str("Score: ", score)
 	if met_count < 3:
+		met_spawn_location.randomize()
+		met_spawn_x = met_spawn_location.randi_range(0,1480)
+		met_spawn_location.randomize()
+		met_spawn_y = met_spawn_location.randi_range(0,720)
+		met_count += 1
 		var met = MET.instance()
 		add_child(met)
-		met.position = Vector2(800,400)
-		met_count += 1
+		met.position = Vector2(met_spawn_x,met_spawn_y)
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

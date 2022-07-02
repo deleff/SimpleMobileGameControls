@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Jab_2_State.png-464b4b6b2a41f796ab4bf8f2f5319b56.stex"
+path="res://.import/landing.png-f58d37b89f210749795bfcd10ca2bea9.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/heroes/megaman/sprites/Jab_2_State.png"
-dest_files=[ "res://.import/Jab_2_State.png-464b4b6b2a41f796ab4bf8f2f5319b56.stex" ]
+source_file="res://characters/heroes/roll/sprites/landing.png"
+dest_files=[ "res://.import/landing.png-f58d37b89f210749795bfcd10ca2bea9.stex" ]
 
 [params]
 

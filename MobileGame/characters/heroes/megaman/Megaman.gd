@@ -14,6 +14,7 @@ func _ready():
 	dash_attack_damage = 10
 	jab_damage = 3
 	special_attack_damage = 20
+	throw_damage = 15
 	audio = $AudioStreamPlayer2D
 	## Get character states
 	state_factory = StateFactory.new()
@@ -62,7 +63,7 @@ func _on_enemy_thrown(hero, enemy, throw_direction):
 		if hero == (self):
 			target_position = self.global_position
 			currently_attacking = enemy
-			attack_damage = dash_attack_damage
+			attack_damage = throw_damage
 			if throw_direction == "right":
 				target_position.x = (self.global_position.x + 100)
 			change_state("throwing")
