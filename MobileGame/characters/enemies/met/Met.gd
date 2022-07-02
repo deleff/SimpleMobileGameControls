@@ -174,4 +174,4 @@ func _on_character_attacked(from, to, attack_type, amount_of_damage, hit_directi
 				## Die if out of health
 				if current_health <= 0:
 					change_state("dying")
-					signal_message_queue.emit_signal("met_died")
+					

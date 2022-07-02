@@ -1,7 +1,7 @@
 extends Node2D
 
-#var player_1 = "Megaman"
-var player_1 = "Roll"
+var player_1 = "Megaman"
+#var player_1 = "Roll"
 
 const MEGAMAN = preload("res://characters/heroes/megaman/Megaman.tscn")
 const ROLL = preload("res://characters/heroes/roll/Roll.tscn")
@@ -64,6 +64,7 @@ func _on_spawner_timeout():
 		var met = MET.instance()
 		add_child(met)
 		met.position = Vector2(met_spawn_x,met_spawn_y)
+		print("met count: ", met_count)
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

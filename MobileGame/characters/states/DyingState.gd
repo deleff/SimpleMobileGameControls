@@ -26,7 +26,9 @@ func _ready():
 	persistent_state.audio.play()
 
 func _on_death_sequence_timeout():
-	persistent_state.queue_free()
+	if persistent_state.character_name == "met":
+		persistent_state.signal_message_queue.emit_signal("met_died")
+		persistent_state.queue_free()
 	
 func _on_animation_timeout():
 	sprite.scale.x *= -1
