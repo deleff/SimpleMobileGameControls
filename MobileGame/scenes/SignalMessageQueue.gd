@@ -11,12 +11,15 @@ extends Node2D
 #func _ready():
 #	pass
 
-signal hit(from, to, attack_type, amount_of_damage, hit_direction)
 signal enemy_jabbed(hero, enemy)
 signal enemy_special_attacked(hero, enemy)
 signal enemy_tapped(hero, enemy)
 signal enemy_thrown(hero, enemy, throw_direction)
+signal hero_health_update(current_health, max_health)
+signal hit(from, to, attack_type, amount_of_damage, hit_direction)
 signal hurtbox_entered(character_hurtbox, hit_by)
+signal met_died()
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass

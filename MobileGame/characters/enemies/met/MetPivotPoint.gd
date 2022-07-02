@@ -1,6 +1,6 @@
 extends Character
 
-class_name Met
+class_name Metold
 
 # Declare member variables here. Examples:
 
@@ -13,9 +13,9 @@ var next_state = RandomNumberGenerator.new()
 onready var finger = get_tree().get_root().get_node("Main/Finger")
 onready var tapper = get_tree().get_root().get_node("Main/Finger/Tapper")
 onready var signal_message_queue = get_tree().get_root().get_node("Main/SignalMessageQueue")
-onready var hero = get_tree().get_root().get_node("Main/MegamanNode/Megaman")
-onready var hero_jab_range = get_tree().get_root().get_node("Main/MegamanNode/Megaman/MegaManPivotPoint/JabRange")
-onready var hero_position = get_tree().get_root().get_node("Main/MegamanNode/Megaman/MegaManPivotPoint")
+onready var hero = get_tree().get_root().get_node("Main/Megaman")
+onready var hero_jab_range = get_tree().get_root().get_node("Main/Megaman/MegaManPivotPoint/JabRange")
+onready var hero_position = get_tree().get_root().get_node("Main/Megaman/MegaManPivotPoint")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	character_name = "met"

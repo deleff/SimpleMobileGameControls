@@ -31,6 +31,7 @@ func _ready():
 	hurtbox.connect("area_entered", self, "on_hutbox_entered")
 	max_health = 100
 	current_health = max_health
+	signal_message_queue.emit_signal("hero_health_update", current_health, max_health)
 
 func _on_megaman_hit(from, to, attack_type, amount_of_damage, hit_direction):
 	## Can be hit if not blocking, or if blocking but attack is a throw
@@ -43,6 +44,7 @@ func _on_megaman_hit(from, to, attack_type, amount_of_damage, hit_direction):
 			change_state("hit_stun")
 			current_health -= amount_of_damage
 			print("Megaman health: ", current_health)
+			signal_message_queue.emit_signal("hero_health_update", current_health, max_health)
 			## Die if out of health
 			if current_health <= 0:
 				change_state("dying")

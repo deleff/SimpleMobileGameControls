@@ -82,12 +82,17 @@ _global_script_classes=[ {
 "base": "Character",
 "class": "Met",
 "language": "GDScript",
-"path": "res://characters/enemies/met/MetPivotPoint.gd"
+"path": "res://characters/enemies/met/Met.gd"
 }, {
 "base": "Node2D",
 "class": "MetShot",
 "language": "GDScript",
 "path": "res://characters/enemies/met/MetShotArea2D.gd"
+}, {
+"base": "Character",
+"class": "Metold",
+"language": "GDScript",
+"path": "res://characters/enemies/met/MetPivotPoint.gd"
 }, {
 "base": "State",
 "class": "NeutralState",
@@ -156,6 +161,7 @@ _global_script_class_icons={
 "Megaman": "",
 "Met": "",
 "MetShot": "",
+"Metold": "",
 "NeutralState": "",
 "RollingState": "",
 "RunningState": "",

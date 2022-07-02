@@ -11,6 +11,7 @@ func _ready():
 	sprite.texture = load("res://characters/%s/%s/sprites/tumble.png" %[character_type, character_name])
 	speed = 800
 	persistent_state.collision_mask = 10
+	persistent_state.collision_layer = 10
 
 func _physics_process(_delta):
 	velocity = persistent_state.global_position.direction_to(target_position) * speed
