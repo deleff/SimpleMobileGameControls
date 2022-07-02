@@ -2,7 +2,7 @@
 
 extends Character
 
-class_name Megaman
+class_name megaman
 
 onready var finger = get_tree().get_root().get_node("Main/Finger")
 onready var tapper = get_tree().get_root().get_node("Main/Finger/Tapper")
@@ -14,6 +14,7 @@ func _ready():
 	dash_attack_damage = 10
 	jab_damage = 3
 	special_attack_damage = 20
+	audio = $AudioStreamPlayer2D
 	## Get character states
 	state_factory = StateFactory.new()
 	change_state("neutral")
@@ -32,6 +33,9 @@ func _ready():
 	max_health = 100
 	current_health = max_health
 	signal_message_queue.emit_signal("hero_health_update", current_health, max_health)
+	var start_sound = load("res://characters/heroes/megaman/sfx/instantiated.wav")
+	audio.stream = start_sound
+	audio.play()
 
 func _on_megaman_hit(from, to, attack_type, amount_of_damage, hit_direction):
 	## Can be hit if not blocking, or if blocking but attack is a throw
@@ -108,7 +112,6 @@ func _on_character_attacked(from, to, amount_of_damage):
 func _input(event):
 	if event is InputEventScreenTouch && event.is_pressed():
 		finger_on_screen = true
-			#signal_message_queue.emit_signal("hit", self, $MegaManPivotPoint/JabRange.get_overlapping_bodies(), 20)
 	## If the player's finger is released from the screen
 	if event is InputEventScreenTouch && event.is_pressed() == false:
 		if attacks.has(state.state_name()) == false:

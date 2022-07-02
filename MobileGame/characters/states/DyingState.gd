@@ -21,6 +21,10 @@ func _ready():
 	target_position = self.global_position
 	persistent_state.collision_mask = 10
 
+	var start_sound = load("res://characters/%s/%s/sfx/dying.wav" %[character_type, character_name])
+	persistent_state.audio.stream = start_sound
+	persistent_state.audio.play()
+
 func _on_death_sequence_timeout():
 	persistent_state.queue_free()
 	

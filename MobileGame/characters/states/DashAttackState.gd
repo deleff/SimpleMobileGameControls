@@ -23,6 +23,10 @@ func _ready():
 	else:
 		hit_direction = "left"
 
+	var start_sound = load("res://characters/%s/%s/sfx/dash_attack.wav" %[character_type, character_name])
+	persistent_state.audio.stream = start_sound
+	persistent_state.audio.play()
+
 func _physics_process(_delta):
 	velocity = persistent_state.global_position.direction_to(target_position) * speed
 	persistent_state.velocity = (velocity)

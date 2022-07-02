@@ -14,6 +14,10 @@ func _ready():
 	taunt_timer.set_one_shot(true)
 	taunt_timer.connect("timeout", self, "_on_taunt_timeout")
 	taunt_timer.start(0.5)
-	
+
+	var start_sound = load("res://characters/%s/%s/sfx/taunt.wav" %[character_type, character_name])
+	persistent_state.audio.stream = start_sound
+	persistent_state.audio.play()
+
 func _on_taunt_timeout():
 	change_state.call_func("neutral")

@@ -6,6 +6,7 @@ class_name Character
 
 var attacks = ["Jab_1_State", "Jab_2_State", "Jab_3_State", "SpecialState", "DashAttackState", "ThrowingState"]
 var attack_damage: int
+var audio: AudioStreamPlayer2D
 var character_name: String
 var character_type: String
 var currently_attacking: Object

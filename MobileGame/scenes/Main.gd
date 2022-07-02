@@ -1,10 +1,14 @@
 extends Node2D
 
+var player_1 = "megaman"
+
 const MEGAMAN = preload("res://characters/heroes/megaman/Megaman.tscn")
+const ROLL = preload("res://characters/heroes/megaman/Megaman.tscn")
 const MET = preload("res://characters/enemies/met/Met.tscn")
 var met_spawner_timer = Timer.new()
 var met_count = 1
 var score = 0
+var theme
 # Called when the node enters the scene tree for the first time.
 func _ready():	
 	$SignalMessageQueue.connect("met_died", self, "_on_met_died")
@@ -16,10 +20,18 @@ func _ready():
 	ResourceLoader.load("res://users/")
 	## Get all of the possible characte states
 	ResourceLoader.load("res://characters/states/")
-	## Set Megaman's starting position
-	var Megaman = MEGAMAN.instance()
-	add_child(Megaman)
-	Megaman.position = Vector2(100,400)
+	## Instantiate hero
+	if player_1 == "megaman":
+		var megaman = MEGAMAN.instance()
+		add_child(megaman)
+		megaman.position = Vector2(100,400)
+		theme = load("res://characters/heroes/megaman/sfx/theme.mp3")
+	else:
+		var Roll = ROLL.instance()
+		add_child(Roll)
+		Roll.position = Vector2(100,400)
+	$AudioStreamPlayer2D.stream = theme
+	$AudioStreamPlayer2D.play()
 	## Instantiate first met
 	var met = MET.instance()
 	add_child(met)

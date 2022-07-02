@@ -16,6 +16,10 @@ func _ready():
 	hit_stun_timer.connect("timeout", self, "_on_hitstun_timeout")
 	hit_stun_timer.start(0.15)
 
+	var start_sound = load("res://characters/%s/%s/sfx/hit_stun.wav" %[character_type, character_name])
+	persistent_state.audio.stream = start_sound
+	persistent_state.audio.play()
+
 func _on_hitstun_timeout():
 	change_state.call_func("neutral")
 

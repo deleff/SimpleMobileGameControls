@@ -24,5 +24,9 @@ func _ready():
 	persistent_state.signal_message_queue.emit_signal("hit", persistent_state, currently_attacking, "jab_2", attack_damage, hit_direction)
 	#persistent_state.currently_attacking = null
 
+	var start_sound = load("res://characters/%s/%s/sfx/jab.wav" %[character_type, character_name])
+	persistent_state.audio.stream = start_sound
+	persistent_state.audio.play()
+
 func _on_jab_window_close():
 	change_state.call_func("neutral")

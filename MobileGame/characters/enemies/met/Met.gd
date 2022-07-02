@@ -9,18 +9,22 @@ const MET_SHOT = preload("res://characters/enemies/met/MetShotNode.tscn")
 var state_change_timer = Timer.new()
 var next_state = RandomNumberGenerator.new()
 
+## Get human player
+onready var player_1 = get_tree().get_root().get_node("Main").player_1
 
 onready var finger = get_tree().get_root().get_node("Main/Finger")
 onready var tapper = get_tree().get_root().get_node("Main/Finger/Tapper")
 onready var signal_message_queue = get_tree().get_root().get_node("Main/SignalMessageQueue")
-onready var hero = get_tree().get_root().get_node("Main/Megaman")
-onready var hero_jab_range = get_tree().get_root().get_node("Main/Megaman/MegaManPivotPoint/JabRange")
-onready var hero_position = get_tree().get_root().get_node("Main/Megaman/MegaManPivotPoint")
+onready var hero = get_tree().get_root().get_node("Main/%s" %[player_1])
+onready var hero_jab_range = get_tree().get_root().get_node("Main/%s/PivotPoint/JabRange" %[player_1])
+onready var hero_position = get_tree().get_root().get_node("Main/%s/PivotPoint" %[player_1])
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	print("player 1 = ", player_1)
 	character_name = "met"
 	character_type = "enemies"
 	print("Met info: ", self)
+	audio = $AudioStreamPlayer2D
 	state_factory = StateFactory.new()
 	change_state("neutral")
 	signal_message_queue.connect("hit", self, "_on_character_attacked")
@@ -34,6 +38,9 @@ func _ready():
 	next_state.randomize()
 	max_health = 30
 	current_health = max_health
+	var start_sound = load("res://characters/enemies/met/sfx/instantiated.wav")
+	audio.stream = start_sound
+	audio.play()
 
 func _on_state_change_timeout():
 	if state.state_name() != "following":

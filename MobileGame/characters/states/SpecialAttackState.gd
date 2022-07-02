@@ -24,6 +24,10 @@ func _ready():
 	persistent_state.signal_message_queue.emit_signal("hit", persistent_state, currently_attacking, "special_attack", attack_damage, hit_direction)
 	#persistent_state.currently_attacking = null
 
+	var start_sound = load("res://characters/%s/%s/sfx/special.wav" %[character_type, character_name])
+	persistent_state.audio.stream = start_sound
+	persistent_state.audio.play()
+
 func _physics_process(_delta):
 	velocity = persistent_state.global_position.direction_to(persistent_state.global_position)
 	persistent_state.velocity = (velocity)
