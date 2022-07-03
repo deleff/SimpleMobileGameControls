@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://fonts/arial.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scenes/Main.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Main.gd" type="Script" id=1]
+[ext_resource path="res://scenes/SignalMessageQueue.gd" type="Script" id=2]
 [ext_resource path="res://Users/Finger.gd" type="Script" id=3]
 [ext_resource path="res://Users/Tapper.gd" type="Script" id=4]
-[ext_resource path="res://scenes/SignalMessageQueue.gd" type="Script" id=6]
+[ext_resource path="res://fonts/arial.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="Theme" id=3]
 
@@ -30,13 +30,13 @@ expand_margin_right = 5.0
 
 [sub_resource type="DynamicFont" id=7]
 size = 60
-font_data = ExtResource( 1 )
+font_data = ExtResource( 5 )
 
 [sub_resource type="CircleShape2D" id=2]
 
-[node name="Main" type="Node2D"]
+[node name="MainGame" type="Node2D"]
 position = Vector2( 1, 1 )
-script = ExtResource( 2 )
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
@@ -60,6 +60,11 @@ custom_styles/bg = SubResource( 5 )
 value = 30.0
 percent_visible = false
 
+[node name="PlayerLogo" type="Sprite" parent="UserInterface/HeroHealthBar"]
+position = Vector2( 196, 132 )
+rotation = 1.5708
+scale = Vector2( 0.3, 0.3 )
+
 [node name="Score" type="Label" parent="UserInterface"]
 margin_left = 1075.0
 margin_top = 45.0
@@ -81,6 +86,6 @@ shape = SubResource( 2 )
 script = ExtResource( 4 )
 
 [node name="SignalMessageQueue" type="Node2D" parent="."]
-script = ExtResource( 6 )
+script = ExtResource( 2 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

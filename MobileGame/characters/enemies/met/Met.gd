@@ -10,14 +10,14 @@ var state_change_timer = Timer.new()
 var next_state = RandomNumberGenerator.new()
 
 ## Get human player
-onready var player_1 = get_tree().get_root().get_node("Main").player_1
+onready var player_1 = get_tree().get_root().get_node("MainGame").player_1
 
-onready var finger = get_tree().get_root().get_node("Main/Finger")
-onready var tapper = get_tree().get_root().get_node("Main/Finger/Tapper")
-onready var signal_message_queue = get_tree().get_root().get_node("Main/SignalMessageQueue")
-onready var hero = get_tree().get_root().get_node("Main/%s" %[player_1])
-onready var hero_jab_range = get_tree().get_root().get_node("Main/%s/PivotPoint/JabRange" %[player_1])
-onready var hero_position = get_tree().get_root().get_node("Main/%s/PivotPoint" %[player_1])
+onready var finger = get_tree().get_root().get_node("MainGame/Finger")
+onready var tapper = get_tree().get_root().get_node("MainGame/Finger/Tapper")
+onready var signal_message_queue = get_tree().get_root().get_node("MainGame/SignalMessageQueue")
+onready var hero = get_tree().get_root().get_node("MainGame/%s" %[player_1])
+onready var hero_jab_range = get_tree().get_root().get_node("MainGame/%s/PivotPoint/JabRange" %[player_1])
+onready var hero_position = get_tree().get_root().get_node("MainGame/%s/PivotPoint" %[player_1])
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print("player 1 = ", player_1)

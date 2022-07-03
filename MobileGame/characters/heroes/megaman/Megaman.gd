@@ -4,9 +4,9 @@ extends Character
 
 class_name megaman
 
-onready var finger = get_tree().get_root().get_node("Main/Finger")
-onready var tapper = get_tree().get_root().get_node("Main/Finger/Tapper")
-onready var signal_message_queue = get_tree().get_root().get_node("Main/SignalMessageQueue")
+onready var finger = get_tree().get_root().get_node("MainGame/Finger")
+onready var tapper = get_tree().get_root().get_node("MainGame/Finger/Tapper")
+onready var signal_message_queue = get_tree().get_root().get_node("MainGame/SignalMessageQueue")
 
 func _ready():
 	character_name = "megaman"

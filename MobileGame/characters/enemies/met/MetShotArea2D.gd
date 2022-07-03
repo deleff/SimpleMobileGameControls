@@ -7,7 +7,7 @@ var velocity = Vector2()
 var x_direction: int
 var y_direction: int
 var hit_direction: String
-onready var signal_message_queue = get_tree().get_root().get_node("Main/SignalMessageQueue")
+onready var signal_message_queue = get_tree().get_root().get_node("MainGame/SignalMessageQueue")
 onready var on_screen = $MetShot/VisibilityNotifier2D
 onready var hitbox = $MetShot
 # Called when the node enters the scene tree for the first time.
