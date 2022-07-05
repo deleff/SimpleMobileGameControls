@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/special.wav-fd60b407755890b4c7f3db6aa8c52fef.sample"
+
+[deps]
+
+source_file="res://characters/heroes/megaman/sfx/special.wav"
+dest_files=[ "res://.import/special.wav-fd60b407755890b4c7f3db6aa8c52fef.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
