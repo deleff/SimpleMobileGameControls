@@ -186,6 +186,11 @@ config/name="Mobile Game Controls"
 run/main_scene="res://scenes/CharacterSelectScene.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://scenes/Global.gd"
+PersistentData="*res://scenes/PersistentData.gd"
+
 [display]
 
 window/size/width=1480

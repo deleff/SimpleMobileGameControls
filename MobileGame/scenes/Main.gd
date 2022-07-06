@@ -1,7 +1,7 @@
 extends Node2D
 
 #var player_1 = "Megaman"
-var player_1 = "Roll"
+onready var player_1 = PersistentData.player_1
 
 const MEGAMAN = preload("res://characters/heroes/megaman/Megaman.tscn")
 const ROLL = preload("res://characters/heroes/roll/Roll.tscn")
@@ -17,7 +17,6 @@ var theme
 func _ready():	
 	$SignalMessageQueue.connect("met_died", self, "_on_met_died")
 	$SignalMessageQueue.connect("hero_health_update", self, "_on_hero_health_update")
-	$UserInterface/HeroHealthBar/PlayerLogo.texture = load("res://characters/heroes/%s/sprites/logo.png" %[player_1.to_lower()])
 	add_child(met_spawner_timer)
 	met_spawner_timer.connect("timeout", self, "_on_spawner_timeout")
 	met_spawner_timer.start(1.5)

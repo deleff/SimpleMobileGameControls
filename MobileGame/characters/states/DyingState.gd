@@ -17,7 +17,7 @@ func _ready():
 	dying_animation_timer.start(0.1)
 	add_child(death_sequence_timer)
 	death_sequence_timer.connect("timeout", self, "_on_death_sequence_timeout")
-	death_sequence_timer.start(0.4)
+	death_sequence_timer.start(0.7)
 	target_position = self.global_position
 	persistent_state.collision_mask = 10
 
@@ -26,9 +26,12 @@ func _ready():
 	persistent_state.audio.play()
 
 func _on_death_sequence_timeout():
-	if persistent_state.character_name == "met":
+	if persistent_state.character_type == "enemies":
 		persistent_state.signal_message_queue.emit_signal("met_died")
 		persistent_state.queue_free()
+	else:
+		PersistentData.player_score = get_tree().get_root().get_node("MainGame").score
+		Global.goto_scene("res://scenes/GameOverScene.tscn")
 	
 func _on_animation_timeout():
 	sprite.scale.x *= -1

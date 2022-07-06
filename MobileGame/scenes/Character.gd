@@ -10,7 +10,7 @@ var audio: AudioStreamPlayer2D
 var character_name: String
 var character_type: String
 var currently_attacking: Object
-var current_health: int
+var current_health: int = 1
 var finger_on_screen: bool = false
 var dash_attack_damage: int
 var health: int

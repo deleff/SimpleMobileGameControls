@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/NormalEnding.mp3-88f2714e82de198b4640d15bc292fff8.mp3str"
+
+[deps]
+
+source_file="res://scenes/NormalEnding.mp3"
+dest_files=[ "res://.import/NormalEnding.mp3-88f2714e82de198b4640d15bc292fff8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

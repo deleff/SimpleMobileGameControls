@@ -60,11 +60,6 @@ custom_styles/bg = SubResource( 5 )
 value = 30.0
 percent_visible = false
 
-[node name="PlayerLogo" type="Sprite" parent="UserInterface/HeroHealthBar"]
-position = Vector2( 196, 132 )
-rotation = 1.5708
-scale = Vector2( 0.3, 0.3 )
-
 [node name="Score" type="Label" parent="UserInterface"]
 margin_left = 1075.0
 margin_top = 45.0

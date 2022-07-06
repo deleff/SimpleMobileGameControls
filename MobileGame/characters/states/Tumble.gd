@@ -22,4 +22,8 @@ func _physics_process(_delta):
 			sprite.scale.x = -1
 		else:
 			sprite.scale.x = 1
-		change_state.call_func("neutral")
+		## Die if out of health
+		if persistent_state.current_health <= 0:
+			change_state.call_func("dying")
+		else:
+			change_state.call_func("neutral")

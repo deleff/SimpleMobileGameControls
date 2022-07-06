@@ -103,14 +103,16 @@ func _on_state_change_timeout():
 					change_state("blocking")
 
 func _on_character_lost(body):
-	if body == hero:
-		change_state("neutral")
+	if state.state_name() != "DyingState":
+		if body == hero:
+			change_state("neutral")
 
 func _on_character_detected(body):
-	if body == hero:
-		currently_attacking = hero
-		target_position = body.global_position
-		change_state("following")
+	if state.state_name() != "DyingState":
+		if body == hero:
+			currently_attacking = hero
+			target_position = body.global_position
+			change_state("following")
 
 func _input(event):
 	if event is InputEventScreenTouch && event.is_pressed():
@@ -171,7 +173,5 @@ func _on_character_attacked(from, to, attack_type, amount_of_damage, hit_directi
 				## Take damage
 				current_health -= amount_of_damage
 				print("Met current health: ", current_health)
-				## Die if out of health
-				if current_health <= 0:
-					change_state("dying")
+
 					
