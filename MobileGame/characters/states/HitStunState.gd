@@ -21,11 +21,7 @@ func _ready():
 	persistent_state.audio.play()
 
 func _on_hitstun_timeout():
-		## Die if out of health
-		if persistent_state.current_health <= 0:
-			change_state.call_func("dying")
-		else:
-			change_state.call_func("neutral")
+	change_state.call_func("neutral")
 
 func _physics_process(_delta):
 	velocity = persistent_state.global_position.direction_to(target_position) * speed

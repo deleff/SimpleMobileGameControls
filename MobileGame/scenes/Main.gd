@@ -6,6 +6,7 @@ onready var player_1 = PersistentData.player_1
 const MEGAMAN = preload("res://characters/heroes/megaman/Megaman.tscn")
 const ROLL = preload("res://characters/heroes/roll/Roll.tscn")
 const MET = preload("res://characters/enemies/met/Met.tscn")
+const WILY = preload("res://characters/enemies/wily/Wily.tscn")
 var met_spawner_timer = Timer.new()
 var met_spawn_location = RandomNumberGenerator.new()
 var met_spawn_x: int
@@ -42,6 +43,10 @@ func _ready():
 	add_child(met)
 	met.position = Vector2(800,400)
 	$UserInterface/Score.text = str("Score: ", score)
+	var wily = WILY.instance()
+	add_child(wily)
+	wily.position = Vector2(800,400)
+
 
 func _on_hero_health_update(current_health, max_health):
 	$UserInterface/HeroHealthBar.value = current_health
@@ -66,6 +71,3 @@ func _on_spawner_timeout():
 		met.position = Vector2(met_spawn_x,met_spawn_y)
 		print("met count: ", met_count)
 		
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass

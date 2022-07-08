@@ -20,7 +20,6 @@ onready var hero_jab_range = get_tree().get_root().get_node("MainGame/%s/PivotPo
 onready var hero_position = get_tree().get_root().get_node("MainGame/%s/PivotPoint" %[player_1])
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("player 1 = ", player_1)
 	character_name = "met"
 	character_type = "enemies"
 	print("Met info: ", self)
