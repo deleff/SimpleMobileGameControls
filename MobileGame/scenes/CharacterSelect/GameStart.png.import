@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GameStart.png-246159bbefb08bef479e7b5eb3ce1740.stex"
+path="res://.import/GameStart.png-d613b72c76267d8c18d539d3c8ef7014.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/GameStart.png"
-dest_files=[ "res://.import/GameStart.png-246159bbefb08bef479e7b5eb3ce1740.stex" ]
+source_file="res://scenes/CharacterSelect/GameStart.png"
+dest_files=[ "res://.import/GameStart.png-d613b72c76267d8c18d539d3c8ef7014.stex" ]
 
 [params]
 

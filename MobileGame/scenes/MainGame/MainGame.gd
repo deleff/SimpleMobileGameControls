@@ -6,7 +6,6 @@ onready var player_1 = PersistentData.player_1
 const MEGAMAN = preload("res://characters/heroes/megaman/Megaman.tscn")
 const ROLL = preload("res://characters/heroes/roll/Roll.tscn")
 const MET = preload("res://characters/enemies/met/Met.tscn")
-const WILY = preload("res://characters/enemies/wily/Wily.tscn")
 var met_spawner_timer = Timer.new()
 var met_spawn_location = RandomNumberGenerator.new()
 var met_spawn_x: int
@@ -43,9 +42,6 @@ func _ready():
 	add_child(met)
 	met.position = Vector2(800,400)
 	$UserInterface/Score.text = str("Score: ", score)
-	var wily = WILY.instance()
-	add_child(wily)
-	wily.position = Vector2(800,400)
 
 
 func _on_hero_health_update(current_health, max_health):

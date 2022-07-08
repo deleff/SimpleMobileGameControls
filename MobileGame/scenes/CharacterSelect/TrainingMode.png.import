@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/TrainingMode.png-3d18773a2ad44b22fe2b06e68c55d98d.stex"
+path="res://.import/TrainingMode.png-4f8bd201c0c0a3667e9dff84882478f6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/TrainingMode.png"
-dest_files=[ "res://.import/TrainingMode.png-3d18773a2ad44b22fe2b06e68c55d98d.stex" ]
+source_file="res://scenes/CharacterSelect/TrainingMode.png"
+dest_files=[ "res://.import/TrainingMode.png-4f8bd201c0c0a3667e9dff84882478f6.stex" ]
 
 [params]
 

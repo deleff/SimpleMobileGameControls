@@ -1,10 +1,10 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scenes/Main.gd" type="Script" id=1]
-[ext_resource path="res://scenes/SignalMessageQueue.gd" type="Script" id=2]
-[ext_resource path="res://Users/Finger.gd" type="Script" id=3]
-[ext_resource path="res://Users/Tapper.gd" type="Script" id=4]
-[ext_resource path="res://fonts/arial.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Users/Finger.gd" type="Script" id=1]
+[ext_resource path="res://scenes/MainGame/MainGame.gd" type="Script" id=2]
+[ext_resource path="res://fonts/arial.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://scenes/SignalMessageQueue.gd" type="Script" id=4]
+[ext_resource path="res://Users/Tapper.gd" type="Script" id=5]
 
 [sub_resource type="Theme" id=3]
 
@@ -30,13 +30,13 @@ expand_margin_right = 5.0
 
 [sub_resource type="DynamicFont" id=7]
 size = 60
-font_data = ExtResource( 5 )
+font_data = ExtResource( 3 )
 
 [sub_resource type="CircleShape2D" id=2]
 
 [node name="MainGame" type="Node2D"]
 position = Vector2( 1, 1 )
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_horizontal_guides_": [  ]
 }
@@ -72,15 +72,15 @@ text = "SCORE
 
 [node name="Finger" type="Area2D" parent="."]
 position = Vector2( -130, 457 )
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 
 [node name="FingerDiameter" type="CollisionShape2D" parent="Finger"]
 shape = SubResource( 2 )
 
 [node name="Tapper" type="Timer" parent="Finger"]
-script = ExtResource( 4 )
+script = ExtResource( 5 )
 
 [node name="SignalMessageQueue" type="Node2D" parent="."]
-script = ExtResource( 2 )
+script = ExtResource( 4 )
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]

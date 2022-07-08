@@ -23,6 +23,7 @@ var max_health: int
 var state: State
 var state_factory: StateFactory
 var special_attack_damage: int
+var signal_message_queue
 var target_position: Vector2
 var target_character: KinematicBody2D
 var tap_count: int = 0
@@ -40,5 +41,6 @@ func change_state(new_state_name):
 	if state != null:
 		state.queue_free()
 	state = state_factory.get_state(new_state_name).state.new()
+	signal_message_queue.emit_signal("state_update", character_name, new_state_name)
 	state.setup(funcref(self, "change_state"), target_position, character_name, character_type, $Sprite, self, currently_attacking, attack_damage)
 	add_child(state)

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TrainingMode.mp3-d288bb94a92fb051b65b3fa295c6d0d0.mp3str"
+
+[deps]
+
+source_file="res://scenes/TrainingMode/TrainingMode.mp3"
+dest_files=[ "res://.import/TrainingMode.mp3-d288bb94a92fb051b65b3fa295c6d0d0.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

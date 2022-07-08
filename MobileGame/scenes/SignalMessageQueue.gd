@@ -19,6 +19,7 @@ signal hero_health_update(current_health, max_health)
 signal hit(from, to, attack_type, amount_of_damage, hit_direction)
 signal hurtbox_entered(character_hurtbox, hit_by)
 signal met_died()
+signal state_update(character_name, state)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

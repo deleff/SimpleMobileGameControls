@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/NormalEnding.mp3-944c354184f865e8cd9b0ea98223e852.mp3str"
+
+[deps]
+
+source_file="res://scenes/GameOver/NormalEnding.mp3"
+dest_files=[ "res://.import/NormalEnding.mp3-944c354184f865e8cd9b0ea98223e852.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

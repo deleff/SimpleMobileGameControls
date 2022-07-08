@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CharacterSelect.mp3-ec0da03c84694284b9e270730b36a740.mp3str"
+
+[deps]
+
+source_file="res://scenes/CharacterSelect/CharacterSelect.mp3"
+dest_files=[ "res://.import/CharacterSelect.mp3-ec0da03c84694284b9e270730b36a740.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

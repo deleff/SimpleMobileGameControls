@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/NewhighScore.mp3-93d61360427b06c0c8bd7f1dde47d495.mp3str"
+
+[deps]
+
+source_file="res://scenes/GameOver/NewhighScore.mp3"
+dest_files=[ "res://.import/NewhighScore.mp3-93d61360427b06c0c8bd7f1dde47d495.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

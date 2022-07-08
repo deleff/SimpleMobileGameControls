@@ -31,7 +31,7 @@ func _on_death_sequence_timeout():
 		persistent_state.queue_free()
 	else:
 		PersistentData.player_score = get_tree().get_root().get_node("MainGame").score
-		Global.goto_scene("res://scenes/GameOverScene.tscn")
+		Global.goto_scene("res://scenes/GameOver/GameOverScene.tscn")
 	
 func _on_animation_timeout():
 	sprite.scale.x *= -1
