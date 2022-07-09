@@ -13,6 +13,7 @@ size = 60
 font_data = ExtResource( 6 )
 
 [node name="CharacterSelectScene" type="Node2D"]
+position = Vector2( -1, 4 )
 script = ExtResource( 3 )
 
 [node name="StartGame" type="TouchScreenButton" parent="."]
