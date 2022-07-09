@@ -40,22 +40,19 @@ func _ready():
 	var met = MET.instance()
 	$YSort.add_child(met)
 	met.position = Vector2(800,400)
-	$UserInterface/Score.text = str("Score: ", score)
+
 
 
 func _on_hero_health_update(current_health, max_health):
-	$UserInterface/HeroHealthBar.value = current_health
-	$UserInterface/HeroHealthBar.max_value = max_health
+	pass
 
 func _on_met_died():
 	met_count -= 1
 	score += 5
-	$UserInterface/Score.text = str("Score: ", score)
+
 
 func _on_spawner_timeout():
-	score += 1
-	$UserInterface/Score.text = str("Score: ", score)
-	
+	score += 1	
 	## Increase difficulty with increasing score
 	if score >= 40 && score < 60:
 		max_met_count = 4
