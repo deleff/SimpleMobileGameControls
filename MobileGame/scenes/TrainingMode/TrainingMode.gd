@@ -12,11 +12,8 @@ var tutorial_position = 0
 func _ready():	
 	$NewGame.connect("pressed", self, "_on_new_game_pressed")
 	$SignalMessageQueue.connect("state_update", self, "_on_player_state_update")
-	## Get the user inputs
-	ResourceLoader.load("res://users/")
 	## Get all of the possible characte states
 	ResourceLoader.load("res://characters/states/")
-	## Instantiate hero
 	## Instantiate hero
 	if player_1 == "Megaman":
 		var megaman = MEGAMAN.instance()

@@ -22,8 +22,6 @@ func _ready():
 	met_spawner_timer.connect("timeout", self, "_on_spawner_timeout")
 	met_spawner_timer.start(1.5)
 	## Get the user inputs
-#	ResourceLoader.load("res://users/")
-	## Get all of the possible characte states
 	ResourceLoader.load("res://characters/states/")
 	## Instantiate hero
 	if player_1 == "Megaman":
