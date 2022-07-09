@@ -1,5 +1,7 @@
 extends Node2D
 
+const MEGAMAN = preload("res://characters/heroes/protoman/Protoman.tscn")
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$AudioStreamPlayer2D.play()
@@ -9,6 +11,9 @@ func _ready():
 	$TrainingMode.connect("pressed", self, "_on_training_mode_pressed")
 	$StartGame.set_block_signals(true)
 	$TrainingMode.set_block_signals(true)
+	var megaman = MEGAMAN.instance()
+	$YSort.add_child(megaman)
+	megaman.position = Vector2(500,400)
 
 func _on_megaman_selected():
 	$Label/CharacterLogo.texture = load("res://characters/heroes/megaman/sprites/logo.png")
