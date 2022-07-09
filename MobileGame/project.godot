@@ -148,11 +148,6 @@ _global_script_classes=[ {
 "class": "megaman",
 "language": "GDScript",
 "path": "res://characters/heroes/megaman/Megaman.gd"
-}, {
-"base": "Character",
-"class": "protoman",
-"language": "GDScript",
-"path": "res://characters/heroes/protoman/Protoman.gd"
 } ]
 _global_script_class_icons={
 "BlockingState": "",
@@ -182,8 +177,7 @@ _global_script_class_icons={
 "TumbleState": "",
 "WalkingState": "",
 "Wily": "",
-"megaman": "",
-"protoman": ""
+"megaman": ""
 }
 
 [application]

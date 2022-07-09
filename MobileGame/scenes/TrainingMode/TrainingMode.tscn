@@ -2,8 +2,8 @@
 
 [ext_resource path="res://scenes/TrainingMode/TrainingMode.gd" type="Script" id=1]
 [ext_resource path="res://scenes/SignalMessageQueue.gd" type="Script" id=2]
-[ext_resource path="res://Users/Finger.gd" type="Script" id=3]
-[ext_resource path="res://Users/Tapper.gd" type="Script" id=4]
+[ext_resource path="res://scenes/TrainingMode/Tapper.gd" type="Script" id=3]
+[ext_resource path="res://scenes/TrainingMode/Finger.gd" type="Script" id=4]
 [ext_resource path="res://fonts/arial.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://scenes/NewGame.png" type="Texture" id=6]
 
@@ -48,13 +48,13 @@ text = "Tutorial"
 
 [node name="Finger" type="Area2D" parent="."]
 position = Vector2( -130, 457 )
-script = ExtResource( 3 )
+script = ExtResource( 4 )
 
 [node name="FingerDiameter" type="CollisionShape2D" parent="Finger"]
 shape = SubResource( 2 )
 
 [node name="Tapper" type="Timer" parent="Finger"]
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="SignalMessageQueue" type="Node2D" parent="."]
 script = ExtResource( 2 )
