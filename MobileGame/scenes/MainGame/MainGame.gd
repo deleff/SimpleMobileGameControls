@@ -3,9 +3,9 @@ extends Node2D
 var player_1 = "Megaman"
 #onready var player_1 = PersistentData.player_1
 
-const MEGAMAN = preload("res://characters/heroes/megaman/Megaman.tscn")
-const ROLL = preload("res://characters/heroes/roll/Roll.tscn")
-const MET = preload("res://characters/enemies/met/Met.tscn")
+#const MEGAMAN = preload("res://characters/heroes/megaman/Megaman.tscn")
+#const ROLL = preload("res://characters/heroes/roll/Roll.tscn")
+#const MET = preload("res://characters/enemies/met/Met.tscn")
 var max_met_count = 3
 var met_spawner_timer = Timer.new()
 var met_spawn_location = RandomNumberGenerator.new()
@@ -27,11 +27,13 @@ func _ready():
 	ResourceLoader.load("res://characters/states/")
 	## Instantiate hero
 	if player_1 == "Megaman":
+		var MEGAMAN = load("res://characters/heroes/megaman/Megaman.tscn")
 		var megaman = MEGAMAN.instance()
 		$YSort.add_child(megaman)
 		megaman.position = Vector2(100,400)
 		theme = load("res://characters/heroes/megaman/sfx/theme.mp3")
 	else:
+		var ROLL = load("res://characters/heroes/roll/Roll.tscn")
 		var Roll = ROLL.instance()
 		$YSort.add_child(Roll)
 		Roll.position = Vector2(100,400)
@@ -39,6 +41,7 @@ func _ready():
 	$AudioStreamPlayer2D.stream = theme
 	$AudioStreamPlayer2D.play()
 	## Instantiate first met
+	var MET = load("res://characters/enemies/met/Met.tscn")
 	var met = MET.instance()
 	$YSort.add_child(met)
 	met.position = Vector2(800,400)
@@ -74,6 +77,7 @@ func _on_spawner_timeout():
 		met_spawn_location.randomize()
 		met_spawn_y = met_spawn_location.randi_range(0,720)
 		met_count += 1
+		var MET = load("res://characters/enemies/met/Met.tscn")
 		var met = MET.instance()
 		$YSort.add_child(met)
 		met.position = Vector2(met_spawn_x,met_spawn_y)
