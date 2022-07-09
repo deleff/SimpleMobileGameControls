@@ -65,5 +65,5 @@ func _on_spawner_timeout():
 		var met = MET.instance()
 		$YSort.add_child(met)
 		met.position = Vector2(met_spawn_x,met_spawn_y)
-		print("met count: ", met_count)
+		#print("met count: ", met_count)
 		

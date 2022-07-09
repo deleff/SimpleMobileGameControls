@@ -21,8 +21,6 @@ func _ready():
 	state_factory = StateFactory.new()
 	change_state("neutral")
 	tapper.connect("timeout", self, "_on_tapper_timeout")
-	print("Roll info: ", self)
-	signal_message_queue.connect("hit", self, "_on_character_attacked")
 	signal_message_queue.connect("enemy_jabbed", self, "_on_enemy_jabbed")
 	signal_message_queue.connect("enemy_special_attacked", self, "_on_enemy_special_attacked")
 	signal_message_queue.connect("enemy_tapped", self, "_on_enemy_tapped")
@@ -49,7 +47,6 @@ func _on_roll_hit(from, to, attack_type, amount_of_damage, hit_direction):
 				target_position = Vector2((self.global_position.x + 20), self.global_position.y)
 			change_state("hit_stun")
 			current_health -= amount_of_damage
-			print("Roll health: ", current_health)
 			signal_message_queue.emit_signal("hero_health_update", current_health, max_health)
 			## Die if out of health
 			if current_health <= 0:
@@ -105,12 +102,6 @@ func _on_enemy_jabbed(hero, enemy):
 				change_state("jab_1")
 				jab_window.start(0.5)
 
-## If the player was hit
-func _on_character_attacked(from, to, amount_of_damage):
-	if to == (self):
-		print("Roll was hit by ", from)
-		print("Damage taken:", amount_of_damage)
-
 func _input(event):
 	if event is InputEventScreenTouch && event.is_pressed():
 		finger_on_screen = true
@@ -139,7 +130,6 @@ func _input(event):
 ## If the player tapped the screen		
 func _on_tapper_timeout():
 	tap_count = tapper.tap_count
-	print("Tap count: ", tap_count)
 	if state.state_name() == "NeutralState" || state.state_name() == "WalkingState" || state.state_name() == "RunningState":
 		## Don't transition from landing attack to walking
 		if state.state_name() != "LandingAttackState":
@@ -152,7 +142,8 @@ func _on_tapper_timeout():
 					else:
 						change_state("running")
 				else: ## If the player is currently attacking
-					print("can't move, currently attacking")
+					pass
+					#print("can't move, currently attacking")
 			## If the player tapped and held the character
 			else:
 				## Can only block from a neutral states

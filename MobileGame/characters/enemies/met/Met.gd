@@ -23,7 +23,6 @@ func _ready():
 	signal_message_queue = get_tree().get_root().get_node("MainGame/SignalMessageQueue")
 	character_name = "met"
 	character_type = "enemies"
-	print("Met info: ", self)
 	audio = $AudioStreamPlayer2D
 	state_factory = StateFactory.new()
 	change_state("neutral")
@@ -155,9 +154,6 @@ func _on_character_attacked(from, to, attack_type, amount_of_damage, hit_directi
 		if (state.state_name() == "BlockingState" && attack_type == "throw") ||  state.state_name() != "BlockingState":
 			## If in tumble, canpile on the damage
 			if state.state_name() != "TumbleState":
-				print("Met current state:", state.state_name())
-				print("Met was hit by ", from)
-				print("Damage taken:", amount_of_damage)
 				if amount_of_damage < 10: ## hitstun
 					if hit_direction == "left":
 						target_position = Vector2((self.global_position.x - 20), self.global_position.y)
@@ -172,6 +168,5 @@ func _on_character_attacked(from, to, attack_type, amount_of_damage, hit_directi
 					change_state("tumble")
 				## Take damage
 				current_health -= amount_of_damage
-				print("Met current health: ", current_health)
 
 					

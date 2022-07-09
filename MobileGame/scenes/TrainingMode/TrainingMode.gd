@@ -55,7 +55,7 @@ var tutorial = [
 
 func _on_player_state_update(character_name, state):
 	if character_name.to_lower() == player_1.to_lower():
-		print("New state: ", state)
+		#print("New state: ", state)
 		match tutorial_position:
 			0: 
 				if state == "walking":

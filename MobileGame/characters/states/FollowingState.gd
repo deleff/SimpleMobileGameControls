@@ -18,7 +18,7 @@ func _ready():
 	else:
 		sprite.scale.x = 1
 	
-	print(persistent_state.character_name, " is currently following: ", currently_following)
+	#print(persistent_state.character_name, " is currently following: ", currently_following)
 
 func _physics_process(_delta):
 	if persistent_state.global_position.x - currently_following.global_position.x < 0: ## Be on the left side

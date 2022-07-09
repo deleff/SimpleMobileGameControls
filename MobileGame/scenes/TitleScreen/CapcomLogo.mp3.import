@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/CapcomLogo.mp3-ff78576c106469a6f99e0e5a418e9249.mp3str"
+
+[deps]
+
+source_file="res://scenes/TitleScreen/CapcomLogo.mp3"
+dest_files=[ "res://.import/CapcomLogo.mp3-ff78576c106469a6f99e0e5a418e9249.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

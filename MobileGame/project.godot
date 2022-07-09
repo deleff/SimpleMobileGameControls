@@ -84,11 +84,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://characters/enemies/met/MetShotArea2D.gd"
 }, {
-"base": "Character",
-"class": "Metold",
-"language": "GDScript",
-"path": "res://characters/enemies/met/MetPivotPoint.gd"
-}, {
 "base": "State",
 "class": "NeutralState",
 "language": "GDScript",
@@ -170,7 +165,6 @@ _global_script_class_icons={
 "LandingState": "",
 "Met": "",
 "MetShot": "",
-"Metold": "",
 "NeutralState": "",
 "Roll": "",
 "RollingState": "",
@@ -189,7 +183,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Mobile Game Controls"
-run/main_scene="res://scenes/CharacterSelect/CharacterSelectScene.tscn"
+run/main_scene="res://scenes/TitleScreen/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
