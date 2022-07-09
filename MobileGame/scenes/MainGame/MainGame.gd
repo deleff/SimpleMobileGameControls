@@ -6,6 +6,7 @@ onready var player_1 = PersistentData.player_1
 const MEGAMAN = preload("res://characters/heroes/megaman/Megaman.tscn")
 const ROLL = preload("res://characters/heroes/roll/Roll.tscn")
 const MET = preload("res://characters/enemies/met/Met.tscn")
+var max_met_count = 3
 var met_spawner_timer = Timer.new()
 var met_spawn_location = RandomNumberGenerator.new()
 var met_spawn_x: int
@@ -56,7 +57,18 @@ func _on_met_died():
 func _on_spawner_timeout():
 	score += 1
 	$UserInterface/Score.text = str("Score: ", score)
-	if met_count < 3:
+	
+	## Increase difficulty with increasing score
+	if score >= 40 && score < 60:
+		max_met_count = 4
+	elif score >= 60 && score < 70:
+		max_met_count = 5
+	elif score >= 70 && score < 90:
+		max_met_count = 6
+	elif score >= 90:
+		max_met_count = 8
+	
+	if met_count < max_met_count:
 		met_spawn_location.randomize()
 		met_spawn_x = met_spawn_location.randi_range(0,1480)
 		met_spawn_location.randomize()
