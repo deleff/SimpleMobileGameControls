@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://scenes/MainGame/Finger.gd" type="Script" id=1]
 [ext_resource path="res://scenes/MainGame/MainGame.gd" type="Script" id=2]
 [ext_resource path="res://fonts/arial.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://scenes/SignalMessageQueue.gd" type="Script" id=4]
+[ext_resource path="res://scenes/MainGame/Tapper.gd" type="Script" id=5]
 
 [sub_resource type="Theme" id=3]
 
@@ -77,6 +78,7 @@ script = ExtResource( 1 )
 shape = SubResource( 2 )
 
 [node name="Tapper" type="Timer" parent="Finger"]
+script = ExtResource( 5 )
 
 [node name="SignalMessageQueue" type="Node2D" parent="."]
 script = ExtResource( 4 )
