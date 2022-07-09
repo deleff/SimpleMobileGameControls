@@ -32,7 +32,8 @@ func _input(event):
 			$AudioStreamPlayer2D.stream = theme
 			$AudioStreamPlayer2D.play()
 	elif transition_position > 5:
-		Global.goto_scene("res://scenes/CharacterSelect/CharacterSelectScene.tscn")
+		#Global.goto_scene("res://scenes/CharacterSelect/CharacterSelectScene.tscn")
+		Global.goto_scene("res://scenes/MainGame/MainGame.tscn")
 
 func _on_text_timer_timeout():
 	transition_position += 1

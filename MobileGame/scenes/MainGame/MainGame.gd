@@ -1,7 +1,7 @@
 extends Node2D
 
-#var player_1 = "Megaman"
-onready var player_1 = PersistentData.player_1
+var player_1 = "Megaman"
+#onready var player_1 = PersistentData.player_1
 
 const MEGAMAN = preload("res://characters/heroes/megaman/Megaman.tscn")
 const ROLL = preload("res://characters/heroes/roll/Roll.tscn")
