@@ -12,7 +12,7 @@ func _ready():
 	signal_message_queue = get_tree().get_root().get_node("MainGame/SignalMessageQueue")
 	character_name = "megaman"
 	character_type = "heroes"
-	dash_attack_damage = 10
+	dash_attack_damage = 13
 	jab_damage = 3
 	special_attack_damage = 20
 	throw_damage = 15

@@ -27,19 +27,19 @@ func _ready():
 	## Instantiate hero
 	if player_1 == "Megaman":
 		var megaman = MEGAMAN.instance()
-		add_child(megaman)
+		$YSort.add_child(megaman)
 		megaman.position = Vector2(100,400)
 		theme = load("res://characters/heroes/megaman/sfx/theme.mp3")
 	else:
 		var Roll = ROLL.instance()
-		add_child(Roll)
+		$YSort.add_child(Roll)
 		Roll.position = Vector2(100,400)
 		theme = load("res://characters/heroes/roll/sfx/theme.mp3")
 	$AudioStreamPlayer2D.stream = theme
 	$AudioStreamPlayer2D.play()
 	## Instantiate first met
 	var met = MET.instance()
-	add_child(met)
+	$YSort.add_child(met)
 	met.position = Vector2(800,400)
 	$UserInterface/Score.text = str("Score: ", score)
 
@@ -63,7 +63,7 @@ func _on_spawner_timeout():
 		met_spawn_y = met_spawn_location.randi_range(0,720)
 		met_count += 1
 		var met = MET.instance()
-		add_child(met)
+		$YSort.add_child(met)
 		met.position = Vector2(met_spawn_x,met_spawn_y)
 		print("met count: ", met_count)
 		

@@ -64,3 +64,5 @@ script = ExtResource( 2 )
 [node name="NewGame" type="TouchScreenButton" parent="."]
 position = Vector2( 69, 563 )
 normal = ExtResource( 6 )
+
+[node name="YSort" type="YSort" parent="."]

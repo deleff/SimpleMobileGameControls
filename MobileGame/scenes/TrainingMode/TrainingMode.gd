@@ -20,11 +20,11 @@ func _ready():
 	## Instantiate hero
 	if player_1 == "Megaman":
 		var megaman = MEGAMAN.instance()
-		add_child(megaman)
+		$YSort.add_child(megaman)
 		megaman.position = Vector2(100,400)
 	else:
 		var Roll = ROLL.instance()
-		add_child(Roll)
+		$YSort.add_child(Roll)
 		Roll.position = Vector2(100,400)
 	theme = load("res://scenes/TrainingMode/TrainingMode.mp3")
 	$AudioStreamPlayer2D.stream = theme
@@ -32,7 +32,7 @@ func _ready():
 	## Instantiate Wily
 	var wily = WILY.instance()
 	wily.position = Vector2(800,400)
-	add_child(wily)
+	$YSort.add_child(wily)
 	$UserInterface/Tutorial.text = tutorial[0]
 
 func _on_new_game_pressed():
