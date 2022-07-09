@@ -42,12 +42,10 @@ __meta__ = {
 }
 
 [node name="UserInterface" type="Control" parent="."]
-visible = false
 margin_right = 1434.0
 margin_bottom = 353.0
 
 [node name="HeroHealthBar" type="ProgressBar" parent="UserInterface"]
-visible = false
 anchor_right = 0.985
 anchor_bottom = 0.846
 margin_left = 20.0
@@ -63,7 +61,6 @@ value = 30.0
 percent_visible = false
 
 [node name="Score" type="Label" parent="UserInterface"]
-visible = false
 margin_left = 1075.0
 margin_top = 45.0
 margin_right = 1367.0
