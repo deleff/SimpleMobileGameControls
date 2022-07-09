@@ -2,7 +2,6 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	ResourceLoader.load("res://characters/states/")
 	$AudioStreamPlayer2D.play()
 	$Label/MegamanIcon.connect("pressed", self, "_on_megaman_selected")
 	$Label/RollIcon.connect("pressed", self, "_on_roll_selected")

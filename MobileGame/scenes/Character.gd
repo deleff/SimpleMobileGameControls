@@ -41,6 +41,6 @@ func change_state(new_state_name):
 	if state != null:
 		state.queue_free()
 	state = state_factory.get_state(new_state_name).state.new()
-	signal_message_queue.emit_signal("state_update", character_name, new_state_name)
+#	signal_message_queue.emit_signal("state_update", character_name, new_state_name)
 	state.setup(funcref(self, "change_state"), target_position, character_name, character_type, $Sprite, self, currently_attacking, attack_damage)
 	add_child(state)
