@@ -2,12 +2,12 @@
 
 importer="mp3"
 type="AudioStreamMP3"
-path="res://.import/NewhighScore.mp3-93d61360427b06c0c8bd7f1dde47d495.mp3str"
+path="res://.import/NewHighScore.mp3-6cba20e23a8f89bf2ae2d4ccd9dbb59c.mp3str"
 
 [deps]
 
-source_file="res://scenes/GameOver/NewhighScore.mp3"
-dest_files=[ "res://.import/NewhighScore.mp3-93d61360427b06c0c8bd7f1dde47d495.mp3str" ]
+source_file="res://scenes/GameOver/NewHighScore.mp3"
+dest_files=[ "res://.import/NewHighScore.mp3-6cba20e23a8f89bf2ae2d4ccd9dbb59c.mp3str" ]
 
 [params]
 
