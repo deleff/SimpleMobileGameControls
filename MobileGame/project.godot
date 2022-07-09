@@ -189,7 +189,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Mobile Game Controls"
-run/main_scene="res://scenes/CharacterSelect/CharacterSelectScene.tscn"
+run/main_scene="res://scenes/TitleScreen/TitleScreen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
